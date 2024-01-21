@@ -1,17 +1,21 @@
 {
 	"schemaVersion": 1,
 	"id": "edenring",
-	"version": "0.6.6",
-	"name": "EdenRing",
-	"description": "Sci-Fi dimension mod with some unique things",
+	"version": "0.6.6-1.20.4",
+	"name": "Eden Ring Reforked",
+	"description": "Sci-Fi dimension mod with some unique things for 1.20+",
 	"authors": [
 		"paulevs (code and art)",
-		"y3z0n (music and sounds)"
+		"y3z0n (music and sounds)",
+		"Erzekawek (1.20.4 port)",
+		"Dantigator (initial 1.20.1 port)"
 	],
 	"contact": {
 		"homepage": "https://www.curseforge.com/minecraft/mc-mods/eden-ring",
 		"issues": "https://github.com/paulevsGitch/EdenRing/issues",
-		"sources": "https://github.com/paulevsGitch/EdenRing"
+		"sources": "https://github.com/paulevsGitch/EdenRing",
+		"fork-sources" : "https://github.com/ErzeKawek/EdenRing-Reforked",
+		"fork-issues": "https://github.com/ErzeKawek/EdenRing-Reforked/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/edenring/icon.png",
@@ -43,7 +47,8 @@
 		"bclib": {
 			"updater_icon": "icon_updater.png",
 			"downloads": {
-				"curseforge": "https://www.curseforge.com/minecraft/mc-mods/eden-ring"
+				"curseforge": "https://www.curseforge.com/minecraft/mc-mods/eden-ring",
+				"modrinth" : "testing"
 			}
 		}
 	}
