@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "edenring",
-	"version": "0.6.6-1.20.4",
+	"version": "0.6.7-1.20.4",
 	"name": "Eden Ring Reforked",
 	"description": "Sci-Fi dimension mod with some unique things for 1.20+",
 	"authors": [
@@ -33,15 +33,15 @@
 		"edenring.mixins.client.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.14.21",
-		"fabric-api": ">=0.83.0",
+		"fabricloader": ">=0.15.1",
+		"fabric-api": ">=0.95.0",
 		"minecraft": [
 			">=1.20"
 		],
-		"bclib": ">=3"
+		"bclib": ">=3.30.0"
 	},
 	"breaks": {
-		"bclib": "<2.2.0"
+		"bclib": "<3.0.14"
 	},
 	"custom": {
 		"bclib": {

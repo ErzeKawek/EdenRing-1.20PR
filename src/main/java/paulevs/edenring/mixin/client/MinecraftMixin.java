@@ -1,20 +1,21 @@
 package paulevs.edenring.mixin.client;
 
+import java.util.concurrent.CompletableFuture;
+
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.sounds.Music;
 import net.minecraft.sounds.Musics;
 import net.minecraft.world.level.biome.Biome;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import paulevs.edenring.EdenRing;
 import paulevs.edenring.gui.GuideBookScreen;
-
-import java.util.concurrent.CompletableFuture;
 
 @Mixin(Minecraft.class)
 public class MinecraftMixin {
@@ -32,8 +33,9 @@ public class MinecraftMixin {
 		}
 	}
 	
-	@Inject(method = "reloadResourcePacks(Z)Ljava/util/concurrent/CompletableFuture;", at = @At("HEAD"))
-	private void eden_reloadResourcePacks(boolean bl, CallbackInfoReturnable<CompletableFuture<Void>> cir) {
+	@Inject(method = "reloadResourcePacks()Ljava/util/concurrent/CompletableFuture;", at = @At("HEAD"))
+	private void eden_reloadResourcePacks(CallbackInfoReturnable<CompletableFuture<Void>> cir) {
 		GuideBookScreen.clearCache();
 	}
+		
 }

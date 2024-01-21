@@ -9,7 +9,7 @@
     },
     "paulevs/edenring/mixin/client/MinecraftMixin": {
       "getSituationalMusic": "Lnet/minecraft/class_310;method_1544()Lnet/minecraft/class_5195;",
-      "reloadResourcePacks(Z)Ljava/util/concurrent/CompletableFuture;": "Lnet/minecraft/class_310;reloadResourcePacks(Z)Ljava/util/concurrent/CompletableFuture;"
+      "reloadResourcePacks()Ljava/util/concurrent/CompletableFuture;": "Lnet/minecraft/class_310;method_1521()Ljava/util/concurrent/CompletableFuture;"
     },
     "paulevs/edenring/mixin/common/AmethystClusterBlockMixin": {
       "canSurvive": "Lnet/minecraft/class_5542;method_9558(Lnet/minecraft/class_2680;Lnet/minecraft/class_4538;Lnet/minecraft/class_2338;)Z"
@@ -63,7 +63,7 @@
       },
       "paulevs/edenring/mixin/client/MinecraftMixin": {
         "getSituationalMusic": "Lnet/minecraft/class_310;method_1544()Lnet/minecraft/class_5195;",
-        "reloadResourcePacks(Z)Ljava/util/concurrent/CompletableFuture;": "Lnet/minecraft/class_310;reloadResourcePacks(Z)Ljava/util/concurrent/CompletableFuture;"
+        "reloadResourcePacks()Ljava/util/concurrent/CompletableFuture;": "Lnet/minecraft/class_310;method_1521()Ljava/util/concurrent/CompletableFuture;"
       },
       "paulevs/edenring/mixin/common/AmethystClusterBlockMixin": {
         "canSurvive": "Lnet/minecraft/class_5542;method_9558(Lnet/minecraft/class_2680;Lnet/minecraft/class_4538;Lnet/minecraft/class_2338;)Z"
