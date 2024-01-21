@@ -1,6 +1,17 @@
 package paulevs.edenring.blocks;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import org.betterx.bclib.blocks.BaseBlock;
+import org.betterx.bclib.client.models.BasePatterns;
+import org.betterx.bclib.client.models.ModelsHelper;
+import org.betterx.bclib.client.models.PatternsHelper;
+
 import com.google.common.collect.Maps;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -20,16 +31,6 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
-
-import org.betterx.bclib.blocks.BaseBlock;
-import org.betterx.bclib.client.models.BasePatterns;
-import org.betterx.bclib.client.models.ModelsHelper;
-import org.betterx.bclib.client.models.PatternsHelper;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 public class MossyStoneBlock extends BaseBlock implements BonemealableBlock {
 	public MossyStoneBlock() {
@@ -57,7 +58,6 @@ public class MossyStoneBlock extends BaseBlock implements BonemealableBlock {
 		return Collections.singletonList(new ItemStack(this));
 	}
 
-	@Override
 	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean var4) {
 		BlockState up = level.getBlockState(pos.above());
 		return up.isAir() || up.is(Blocks.STONE);
@@ -88,5 +88,11 @@ public class MossyStoneBlock extends BaseBlock implements BonemealableBlock {
 				}
 			}
 		}
+	}
+
+	@Override
+	public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
+		// Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'isValidBonemealTarget'");
 	}
 }

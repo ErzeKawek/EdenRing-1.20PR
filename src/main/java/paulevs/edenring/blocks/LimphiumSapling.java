@@ -1,5 +1,8 @@
 package paulevs.edenring.blocks;
 
+import org.betterx.bclib.util.BlocksHelper;
+import org.betterx.bclib.util.MHelper;
+
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
@@ -11,13 +14,11 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.Half;
-import org.betterx.bclib.util.BlocksHelper;
-import org.betterx.bclib.util.MHelper;
 import paulevs.edenring.registries.EdenBlocks;
 
 public class LimphiumSapling extends OverlayPlantBlock {
 	public LimphiumSapling() {
-		super(FabricBlockSettings.copyOf(Blocks.GRASS).randomTicks());
+		super(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK).randomTicks());
 	}
 	
 	@Override

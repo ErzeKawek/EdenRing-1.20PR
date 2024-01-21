@@ -74,7 +74,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a></code>, <code>net.minecraft.world.level.biome.BiomeManager.NoiseBiomeSource</code>, <code>net.minecraft.world.level.BlockAndTintGetter</code>, <code>net.minecraft.world.level.BlockGetter</code>, <code>net.minecraft.world.level.CollisionGetter</code>, <code>net.minecraft.world.level.CommonLevelAccessor</code>, <code>net.minecraft.world.level.EntityGetter</code>, <code>net.minecraft.world.level.LevelAccessor</code>, <code>net.minecraft.world.level.LevelHeightAccessor</code>, <code>net.minecraft.world.level.LevelReader</code>, <code>net.minecraft.world.level.LevelSimulatedReader</code>, <code>net.minecraft.world.level.LevelSimulatedRW</code>, <code>net.minecraft.world.level.LevelTimeAccess</code>, <code>net.minecraft.world.level.LevelWriter</code>, <code>net.minecraft.world.level.SignalGetter</code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a></code>, <code>net.fabricmc.fabric.api.blockview.v2.FabricBlockView</code>, <code>net.minecraft.world.level.biome.BiomeManager.NoiseBiomeSource</code>, <code>net.minecraft.world.level.BlockAndTintGetter</code>, <code>net.minecraft.world.level.BlockGetter</code>, <code>net.minecraft.world.level.CollisionGetter</code>, <code>net.minecraft.world.level.CommonLevelAccessor</code>, <code>net.minecraft.world.level.EntityGetter</code>, <code>net.minecraft.world.level.LevelAccessor</code>, <code>net.minecraft.world.level.LevelHeightAccessor</code>, <code>net.minecraft.world.level.LevelReader</code>, <code>net.minecraft.world.level.LevelSimulatedReader</code>, <code>net.minecraft.world.level.LevelSimulatedRW</code>, <code>net.minecraft.world.level.LevelTimeAccess</code>, <code>net.minecraft.world.level.LevelWriter</code>, <code>net.minecraft.world.level.SignalGetter</code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">ClientLevelMixin</span>
@@ -151,6 +151,9 @@ loadScripts(document, 'script');</script>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-net.minecraft.world.level.EntityGetter">Methods inherited from interface&nbsp;net.minecraft.world.level.EntityGetter</h3>
 <code>getEntities, getEntitiesOfClass, getEntitiesOfClass, getNearbyEntities, getNearbyPlayers, getNearestEntity, getNearestEntity, getNearestPlayer, getNearestPlayer, getNearestPlayer, getNearestPlayer, getNearestPlayer, getNearestPlayer, getPlayerByUUID, hasNearbyAlivePlayer, players</code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.fabricmc.fabric.api.blockview.v2.FabricBlockView">Methods inherited from interface&nbsp;net.fabricmc.fabric.api.blockview.v2.FabricBlockView</h3>
+<code>getBiomeFabric, getBlockEntityRenderData, hasBiomes</code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-net.minecraft.world.level.LevelAccessor">Methods inherited from interface&nbsp;net.minecraft.world.level.LevelAccessor</h3>
 <code>blockUpdated, dayTime, gameEvent, gameEvent, gameEvent, gameEvent, getBlockTicks, getChunkSource, getDifficulty, getFluidTicks, hasChunk, levelEvent, levelEvent, playSound, scheduleTick, scheduleTick, scheduleTick, scheduleTick</code></div>

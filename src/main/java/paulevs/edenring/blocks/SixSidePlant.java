@@ -1,7 +1,19 @@
 package paulevs.edenring.blocks;
 
+import java.util.List;
+import java.util.Map;
+
+import org.betterx.bclib.blocks.BaseBlockNotFull;
+import org.betterx.bclib.client.render.BCLRenderLayer;
+import org.betterx.bclib.interfaces.CustomColorProvider;
+import org.betterx.bclib.interfaces.RenderLayerProvider;
+import org.betterx.bclib.items.tool.BaseShearsItem;
+import org.betterx.bclib.util.BlocksHelper;
+import org.betterx.ui.ColorUtil;
+
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -35,16 +47,6 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.betterx.bclib.blocks.BaseBlockNotFull;
-import org.betterx.bclib.client.render.BCLRenderLayer;
-import org.betterx.bclib.interfaces.CustomColorProvider;
-import org.betterx.bclib.interfaces.RenderLayerProvider;
-import org.betterx.bclib.items.tool.BaseShearsItem;
-import org.betterx.bclib.util.BlocksHelper;
-import org.betterx.ui.ColorUtil;
-
-import java.util.List;
-import java.util.Map;
 
 public class SixSidePlant extends BaseBlockNotFull implements CustomColorProvider, RenderLayerProvider, BonemealableBlock {
 	public static final BooleanProperty[] DIRECTIONS = EdenBlockProperties.DIRECTIONS;
@@ -207,7 +209,6 @@ public class SixSidePlant extends BaseBlockNotFull implements CustomColorProvide
 		return isEmpty ? null : state;
 	}
 	
-	@Override
 	public boolean isValidBonemealTarget(LevelReader blockGetter, BlockPos blockPos, BlockState blockState, boolean bl) {
 		return true;
 	}
@@ -221,5 +222,11 @@ public class SixSidePlant extends BaseBlockNotFull implements CustomColorProvide
 	public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
 		ItemEntity item = new ItemEntity(level, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, new ItemStack(this));
 		level.addFreshEntity(item);
+	}
+
+	@Override
+	public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
+		// Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'isValidBonemealTarget'");
 	}
 }

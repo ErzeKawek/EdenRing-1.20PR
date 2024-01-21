@@ -1,0 +1,11 @@
+v1	named	intermediary
+FIELD	paulevs/edenring/mixin/client/LevelRendererMixin	Lnet/minecraft/client/Minecraft;	minecraft	field_4088
+FIELD	paulevs/edenring/mixin/client/LevelRendererMixin	Lnet/minecraft/client/renderer/RenderBuffers;	renderBuffers	field_20951
+FIELD	paulevs/edenring/mixin/client/MinecraftMixin	Lnet/minecraft/client/player/LocalPlayer;	player	field_1724
+FIELD	paulevs/edenring/mixin/client/MinecraftMixin	Lnet/minecraft/client/multiplayer/ClientLevel;	level	field_1687
+FIELD	paulevs/edenring/mixin/common/EatBlockGoalMixin	Lnet/minecraft/world/entity/Mob;	mob	field_6424
+FIELD	paulevs/edenring/mixin/common/EatBlockGoalMixin	Lnet/minecraft/world/level/Level;	level	field_6421
+FIELD	paulevs/edenring/mixin/common/NoiseBasedChunkGeneratorMixin	Lnet/minecraft/core/Holder;	settings	field_24774
+FIELD	paulevs/edenring/mixin/common/NoiseChunkMixin	Lnet/minecraft/world/level/levelgen/NoiseSettings;	noiseSettings	field_35674
+METHOD	paulevs/edenring/mixin/client/LevelRendererMixin	(Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/blaze3d/vertex/VertexConsumer;Lnet/minecraft/world/phys/shapes/VoxelShape;DDDFFFF)V	renderShape	method_3291
+METHOD	paulevs/edenring/mixin/common/EntityMixin	()V	onBelowWorld	method_5825

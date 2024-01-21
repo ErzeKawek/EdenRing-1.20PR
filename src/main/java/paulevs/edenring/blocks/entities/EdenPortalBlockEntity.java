@@ -1,5 +1,13 @@
 package paulevs.edenring.blocks.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import org.betterx.bclib.util.BlocksHelper;
+import org.jetbrains.annotations.Nullable;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
@@ -27,13 +35,6 @@ import paulevs.edenring.interfaces.EdenPortable;
 import paulevs.edenring.registries.EdenBlockEntities;
 import paulevs.edenring.registries.EdenFeatures;
 import paulevs.edenring.world.EdenPortal;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-
-import org.betterx.bclib.util.BlocksHelper;
 
 public class EdenPortalBlockEntity extends BlockEntity {
 	private int checkTicks;
@@ -191,5 +192,10 @@ public class EdenPortalBlockEntity extends BlockEntity {
 		
 		pos.move(chunk.getPos().getMinBlockX(), 2, chunk.getPos().getMinBlockZ());
 		return;
+	}
+
+	public @Nullable Object find(BlockEntity blockEntity, Object context) {
+		// Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'find'");
 	}
 }

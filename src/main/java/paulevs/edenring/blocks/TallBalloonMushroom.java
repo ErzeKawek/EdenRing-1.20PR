@@ -1,7 +1,21 @@
 package paulevs.edenring.blocks;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import org.betterx.bclib.behaviours.BehaviourBuilders;
+import org.betterx.bclib.blocks.BasePlantBlock;
+import org.betterx.bclib.client.models.BasePatterns;
+import org.betterx.bclib.client.models.ModelsHelper;
+import org.betterx.bclib.client.models.PatternsHelper;
+import org.betterx.bclib.items.tool.BaseShearsItem;
+import org.betterx.bclib.util.MHelper;
+
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.block.model.BlockModel;
@@ -26,23 +40,16 @@ import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
-
-import org.betterx.bclib.behaviours.BehaviourBuilders;
-import org.betterx.bclib.blocks.BasePlantBlock;
-import org.betterx.bclib.client.models.BasePatterns;
-import org.betterx.bclib.client.models.ModelsHelper;
-import org.betterx.bclib.client.models.PatternsHelper;
-import org.betterx.bclib.items.tool.BaseShearsItem;
-import org.betterx.bclib.util.MHelper;
 import paulevs.edenring.EdenRing;
 import paulevs.edenring.registries.EdenBlocks;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-
 public class TallBalloonMushroom extends BasePlantBlock {
+	@Override
+	public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state) {
+		// Auto-generated method stub
+		return super.isValidBonemealTarget(world, pos, state);
+	}
+
 	public static final IntegerProperty TEXTURE = EdenBlockProperties.TEXTURE_4;
 	
 	public TallBalloonMushroom() {
@@ -124,7 +131,6 @@ public class TallBalloonMushroom extends BasePlantBlock {
 		}
 	}
 	
-	@Override
 	public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state, boolean isClient) {
 		return false;
 	}

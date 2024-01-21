@@ -1,11 +1,21 @@
 package paulevs.edenring.gui;
 
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Stack;
+import java.util.function.Function;
+
+import org.betterx.bclib.util.JsonFactory;
+
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.mojang.blaze3d.systems.RenderSystem;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
@@ -17,18 +27,16 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;
-import org.betterx.bclib.util.JsonFactory;
 import paulevs.edenring.EdenRing;
 import paulevs.edenring.client.ItemScaler;
 
-import java.awt.Point;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Stack;
-import java.util.function.Function;
-
 public class GuideBookScreen extends Screen {
+	@Override
+	public void renderBackground(GuiGraphics guiGraphics, int i, int j, float f) {
+		// Auto-generated method stub
+		super.renderBackground(guiGraphics, i, j, f);
+	}
+
 	private static final Map<String, Function<JsonObject, PageEntry>> ENTRY_REGISTRY = Maps.newHashMap();
 	private static final ResourceLocation BOOK_TEXTURE = EdenRing.makeID("textures/gui/book.png");
 	private static final Map<String, BookInfo> BOOKS_CACHE = Maps.newHashMap();
@@ -144,7 +152,7 @@ public class GuideBookScreen extends Screen {
 	
 	@Override
 	public void render(GuiGraphics guiGraphics, int i, int j, float f) {
-		this.renderBackground(guiGraphics);
+		this.renderBackground(guiGraphics, i, j, f);
 		RenderSystem.setShader(GameRenderer::getPositionTexShader);
 		RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 		RenderSystem.setShaderTexture(0, BOOK_TEXTURE);

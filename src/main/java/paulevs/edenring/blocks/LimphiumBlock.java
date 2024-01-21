@@ -1,6 +1,11 @@
 package paulevs.edenring.blocks;
 
+import java.util.List;
+
+import org.betterx.bclib.util.MHelper;
+
 import com.google.common.collect.Lists;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemStack;
@@ -14,12 +19,8 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Half;
 import net.minecraft.world.level.storage.loot.LootParams;
-
-import org.betterx.bclib.util.MHelper;
 import paulevs.edenring.registries.EdenBlocks;
 import paulevs.edenring.registries.EdenItems;
-
-import java.util.List;
 
 public class LimphiumBlock extends OverlayPlantBlock {
 	public static final EnumProperty<Half> HALF = BlockStateProperties.HALF;
@@ -47,7 +48,6 @@ public class LimphiumBlock extends OverlayPlantBlock {
 		return canSurvive(state, world, pos) ? state : Blocks.AIR.defaultBlockState();
 	}
 	
-	@Override
 	public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state, boolean isClient) {
 		return false;
 	}

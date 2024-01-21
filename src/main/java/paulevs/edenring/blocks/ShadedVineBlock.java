@@ -1,7 +1,22 @@
 package paulevs.edenring.blocks;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import org.betterx.bclib.behaviours.BehaviourBuilders;
+import org.betterx.bclib.blocks.BaseBlockNotFull;
+import org.betterx.bclib.client.models.BasePatterns;
+import org.betterx.bclib.client.models.ModelsHelper;
+import org.betterx.bclib.client.models.PatternsHelper;
+import org.betterx.bclib.client.render.BCLRenderLayer;
+import org.betterx.bclib.interfaces.RenderLayerProvider;
+import org.betterx.bclib.items.tool.BaseShearsItem;
+import org.betterx.bclib.util.BlocksHelper;
+
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.block.model.BlockModel;
@@ -30,21 +45,7 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import org.betterx.bclib.behaviours.BehaviourBuilders;
-import org.betterx.bclib.blocks.BaseBlockNotFull;
-import org.betterx.bclib.client.models.BasePatterns;
-import org.betterx.bclib.client.models.ModelsHelper;
-import org.betterx.bclib.client.models.PatternsHelper;
-import org.betterx.bclib.client.render.BCLRenderLayer;
-import org.betterx.bclib.interfaces.RenderLayerProvider;
-import org.betterx.bclib.items.tool.BaseShearsItem;
-import org.betterx.bclib.util.BlocksHelper;
 import paulevs.edenring.blocks.EdenBlockProperties.QuadShape;
-
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 public class ShadedVineBlock extends BaseBlockNotFull implements RenderLayerProvider, BonemealableBlock {
 	public static final EnumProperty<QuadShape> SHAPE = EdenBlockProperties.QUAD_SHAPE;
@@ -150,7 +151,6 @@ public class ShadedVineBlock extends BaseBlockNotFull implements RenderLayerProv
 		return BCLRenderLayer.CUTOUT;
 	}
 	
-	@Override
 	public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state, boolean isClient) {
 		while (world.getBlockState(pos).getBlock() == this) {
 			pos = pos.below();
@@ -173,5 +173,11 @@ public class ShadedVineBlock extends BaseBlockNotFull implements RenderLayerProv
 		}
 		world.setBlockAndUpdate(pos, defaultBlockState());
 		BlocksHelper.setWithoutUpdate(world, pos, defaultBlockState());
+	}
+
+	@Override
+	public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
+		// Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'isValidBonemealTarget'");
 	}
 }
