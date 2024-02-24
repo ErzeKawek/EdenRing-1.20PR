@@ -91,6 +91,9 @@ dependencies {
 //        modApi "com.github.quiqueck:WunderLib"
 //        include "com.github.quiqueck:WunderLib"
     }
+    dependencies {
+        include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.2.2")))
+    }
 }
 
 def useOptional(String dep) {
