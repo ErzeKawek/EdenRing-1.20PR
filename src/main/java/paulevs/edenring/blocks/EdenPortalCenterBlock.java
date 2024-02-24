@@ -11,6 +11,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,6 +24,7 @@ import org.betterx.bclib.client.models.ModelsHelper;
 import org.betterx.bclib.client.models.PatternsHelper;
 import org.betterx.bclib.interfaces.BlockModelProvider;
 import paulevs.edenring.blocks.entities.EdenPortalBlockEntity;
+import com.mojang.serialization.MapCodec;
 
 import java.util.Optional;
 
@@ -67,5 +69,8 @@ public class EdenPortalCenterBlock extends BaseBlockWithEntity implements BlockM
 	public BlockModel getBlockModel(ResourceLocation blockId, BlockState blockState) {
 		Optional<String> pattern = PatternsHelper.createJson(BasePatterns.BLOCK_EMPTY, new ResourceLocation("stone"));
 		return ModelsHelper.fromPattern(pattern);
+	}
+	protected MapCodec<? extends BaseEntityBlock> codec() {
+		throw new UnsupportedOperationException("Unimplemented method 'codec'");
 	}
 }
