@@ -30,37 +30,38 @@ public class EdenPortalCenterBlock extends BaseBlockWithEntity implements BlockM
 	public EdenPortalCenterBlock() {
 		super(FabricBlockSettings.copyOf(Blocks.BARRIER).luminance(15).noCollision().noOcclusion());
 	}
-	
+
 	@Override
 	public VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
 		return Shapes.empty();
 	}
-	
+
 	@Override
 	public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
 		return new EdenPortalBlockEntity(blockPos, blockState);
 	}
-	
+
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> blockEntityType) {
 		return level.isClientSide() ? EdenPortalBlockEntity::clientTick : EdenPortalBlockEntity::serverTick;
 	}
-	
+
 	@Override
 	public boolean propagatesSkylightDown(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
 		return true;
 	}
-	
+
+
 	@Override
 	public RenderShape getRenderShape(BlockState blockState) {
 		return RenderShape.INVISIBLE;
 	}
-	
+
 	@Override
 	public float getShadeBrightness(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
 		return 1.0F;
 	}
-	
+
 	@Override
 	@Environment(EnvType.CLIENT)
 	public BlockModel getBlockModel(ResourceLocation blockId, BlockState blockState) {

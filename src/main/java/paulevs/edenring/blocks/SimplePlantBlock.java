@@ -35,6 +35,6 @@ public class SimplePlantBlock extends BasePlantBlock {
 	@Override
 	@SuppressWarnings("deprecation")
 	public VoxelShape getShape(BlockState state, BlockGetter view, BlockPos pos, CollisionContext ePos) {
-		return isGrass ? Blocks.GRASS.getShape(state, view, pos, ePos) : super.getShape(state, view, pos, ePos);
+		return isGrass ? Blocks.GRASS_BLOCK.getShape(state, view, pos, ePos) : super.getShape(state, view, pos, ePos);
 	}
 }

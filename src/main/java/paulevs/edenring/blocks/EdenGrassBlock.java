@@ -42,7 +42,12 @@ public class EdenGrassBlock extends GrassBlock implements BlockModelProvider, Cu
 	public EdenGrassBlock() {
 		super(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK));
 	}
-	
+
+	private boolean isValidBonemealTarget(ServerLevel serverLevel, BlockPos blockPos, BlockState blockState,
+										  boolean isClientSide) {
+		throw new UnsupportedOperationException("Unimplemented method 'isValidBonemealTarget'");
+	}
+
 	@Override
 	public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
 		ItemStack tool = builder.getParameter(LootContextParams.TOOL);

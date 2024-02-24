@@ -149,8 +149,7 @@ public class ShadedVineBlock extends BaseBlockNotFull implements RenderLayerProv
 	public BCLRenderLayer getRenderLayer() {
 		return BCLRenderLayer.CUTOUT;
 	}
-	
-	@Override
+
 	public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state, boolean isClient) {
 		while (world.getBlockState(pos).getBlock() == this) {
 			pos = pos.below();
@@ -173,5 +172,10 @@ public class ShadedVineBlock extends BaseBlockNotFull implements RenderLayerProv
 		}
 		world.setBlockAndUpdate(pos, defaultBlockState());
 		BlocksHelper.setWithoutUpdate(world, pos, defaultBlockState());
+	}
+
+	public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
+		// Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'isValidBonemealTarget'");
 	}
 }

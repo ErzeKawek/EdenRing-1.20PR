@@ -46,8 +46,8 @@ public class LimphiumBlock extends OverlayPlantBlock {
 	public BlockState updateShape(BlockState state, Direction facing, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos) {
 		return canSurvive(state, world, pos) ? state : Blocks.AIR.defaultBlockState();
 	}
-	
-	@Override
+
+
 	public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state, boolean isClient) {
 		return false;
 	}

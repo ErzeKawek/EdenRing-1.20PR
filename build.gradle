@@ -87,7 +87,7 @@ dependencies {
         implementation project(path: ":WunderLib", configuration: 'dev')
         include project(path: ":WunderLib", configuration: 'dev')
     } else {
-        modImplementation "com.github.quiqueck:WunderLib:1.1.5"
+        modImplementation "com.github.quiqueck:WunderLib:1.30.1"
 //        modApi "com.github.quiqueck:WunderLib"
 //        include "com.github.quiqueck:WunderLib"
     }

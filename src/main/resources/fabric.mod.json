@@ -9,8 +9,7 @@
 		"y3z0n (music and sounds)",
 		"Firel (Music)",
 		"Erzekawek (port dev)",
-		"ChristopherJ123 (port dev)",
-		"Zard (Texture Artist)"
+		"ChristopherJ123 (port dev)"
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/eden-ring-reforked",
@@ -37,16 +36,15 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.15.0",
-		"fabric-api": ">=0.90.0",
+		"fabric-api": ">=0.95.0",
 		"minecraft": [
-			"1.20",
-			"1.20.1"
+			"1.20.3",
+			"1.20.4"
 		],
 		"bclib": ">=3.0.14"
 	},
 	"breaks": {
-		"bclib": "<3",
-		"fabric-api": ">=0.92.0"
+		"bclib": "<3"
 	},
 	"custom": {
 		"bclib": {

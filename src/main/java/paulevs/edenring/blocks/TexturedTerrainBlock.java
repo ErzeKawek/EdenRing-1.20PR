@@ -90,4 +90,9 @@ public class TexturedTerrainBlock extends GrassBlock implements BlockModelProvid
 			}
 		}
     }
+
+	private boolean isValidBonemealTarget(ServerLevel serverLevel, BlockPos blockPos, BlockState blockState,
+										  boolean isClientSide) {
+		throw new UnsupportedOperationException("Unimplemented method 'isValidBonemealTarget'");
+	}
 }

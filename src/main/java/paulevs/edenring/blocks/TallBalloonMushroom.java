@@ -43,6 +43,12 @@ import java.util.Map;
 import java.util.Optional;
 
 public class TallBalloonMushroom extends BasePlantBlock {
+
+	public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state) {
+		// Auto-generated method stub
+		return super.isValidBonemealTarget(world, pos, state);
+	}
+
 	public static final IntegerProperty TEXTURE = EdenBlockProperties.TEXTURE_4;
 	
 	public TallBalloonMushroom() {
@@ -124,7 +130,7 @@ public class TallBalloonMushroom extends BasePlantBlock {
 		}
 	}
 	
-	@Override
+
 	public boolean isValidBonemealTarget(LevelReader world, BlockPos pos, BlockState state, boolean isClient) {
 		return false;
 	}

@@ -35,7 +35,12 @@ public class MossyStoneBlock extends BaseBlock implements BonemealableBlock {
 	public MossyStoneBlock() {
 		super(FabricBlockSettings.copyOf(Blocks.STONE));
 	}
-	
+
+	public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
+		// Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'isValidBonemealTarget'");
+	}
+
 	@Override
 	@Environment(EnvType.CLIENT)
 	public BlockModel getBlockModel(ResourceLocation blockId, BlockState blockState) {
@@ -57,7 +62,6 @@ public class MossyStoneBlock extends BaseBlock implements BonemealableBlock {
 		return Collections.singletonList(new ItemStack(this));
 	}
 
-	@Override
 	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean var4) {
 		BlockState up = level.getBlockState(pos.above());
 		return up.isAir() || up.is(Blocks.STONE);
