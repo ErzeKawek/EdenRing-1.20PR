@@ -36,7 +36,7 @@ public class TexturedTerrainBlock extends GrassBlock implements BlockModelProvid
 	public TexturedTerrainBlock() {
 		super(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK));
 	}
-	
+
 	@Override
 	public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
 		ItemStack tool = builder.getParameter(LootContextParams.TOOL);
@@ -45,13 +45,13 @@ public class TexturedTerrainBlock extends GrassBlock implements BlockModelProvid
 		}
 		return Collections.singletonList(new ItemStack(this));
 	}
-	
+
 	@Override
 	@Environment(EnvType.CLIENT)
 	public BlockModel getItemModel(ResourceLocation blockId) {
 		return this.getBlockModel(blockId, this.defaultBlockState());
 	}
-	
+
 	@Override
 	@Environment(EnvType.CLIENT)
 	public BlockModel getBlockModel(ResourceLocation blockId, BlockState blockState) {
@@ -64,7 +64,7 @@ public class TexturedTerrainBlock extends GrassBlock implements BlockModelProvid
 		Optional<String> pattern = PatternsHelper.createJson(BasePatterns.BLOCK_TOP_SIDE_BOTTOM, textures);
 		return ModelsHelper.fromPattern(pattern);
 	}
-	
+
 	@Override
 	@Environment(EnvType.CLIENT)
 	public UnbakedModel getModelVariant(ResourceLocation stateId, BlockState blockState, Map<ResourceLocation, UnbakedModel> modelCache) {
@@ -74,8 +74,8 @@ public class TexturedTerrainBlock extends GrassBlock implements BlockModelProvid
 	}
 
 	@Override
-    public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
-        super.performBonemeal(serverLevel, randomSource, blockPos, blockState);
+	public void performBonemeal(ServerLevel serverLevel, RandomSource randomSource, BlockPos blockPos, BlockState blockState) {
+		super.performBonemeal(serverLevel, randomSource, blockPos, blockState);
 		if (isValidBonemealTarget(serverLevel, blockPos, blockState, serverLevel.isClientSide)) {
 			for (Direction direction : Direction.values()) {
 				Boolean spread = false;
@@ -89,7 +89,7 @@ public class TexturedTerrainBlock extends GrassBlock implements BlockModelProvid
 				}
 			}
 		}
-    }
+	}
 
 	private boolean isValidBonemealTarget(ServerLevel serverLevel, BlockPos blockPos, BlockState blockState,
 										  boolean isClientSide) {

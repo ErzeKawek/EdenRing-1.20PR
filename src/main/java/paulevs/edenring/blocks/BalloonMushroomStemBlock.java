@@ -67,7 +67,7 @@ public class BalloonMushroomStemBlock extends BaseBlockNotFull implements Render
 	}
 	
 	@Override
-	public VoxelShape getCollisionShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
+		public VoxelShape getCollisionShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
 		BalloonMushroomStemState shape = blockState.getValue(BALLOON_MUSHROOM_STEM);
 		if (shape == BalloonMushroomStemState.UP || shape == BalloonMushroomStemState.NORTH_SOUTH || shape == BalloonMushroomStemState.EAST_WEST) {
 			return SHAPES.get(shape);
