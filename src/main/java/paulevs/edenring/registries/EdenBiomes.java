@@ -6,14 +6,11 @@ import net.minecraft.world.level.biome.Biome;
 
 import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeRegistry;
 import org.betterx.bclib.api.v2.levelgen.biomes.BiomeAPI;
+import org.jetbrains.annotations.NotNull;
 import paulevs.edenring.EdenRing;
 import paulevs.edenring.world.biomes.EdenRingBiome;
 
 public class EdenBiomes {
-	public static final BiomeAPI.BiomeType EDEN = new BiomeAPI.BiomeType("EDEN");
-    public static final BiomeAPI.BiomeType EDEN_CAVE = new BiomeAPI.BiomeType("EDEN_CAVE", EDEN);
-    public static final BiomeAPI.BiomeType EDEN_LAND = new BiomeAPI.BiomeType("EDEN_LAND", EDEN);
-    public static final BiomeAPI.BiomeType EDEN_VOID = new BiomeAPI.BiomeType("EDEN_VOID", EDEN);
 
     // LAND //
     public static final ResourceKey<Biome> STONE_GARDEN = cKey("stone_garden");
@@ -38,7 +35,7 @@ public class EdenBiomes {
     public static final ResourceKey<Biome> OLD_MYCOTIC_FOREST = cKey("old_mycotic_forest");
     public static final ResourceKey<Biome> OLD_SKY_COLONY = cKey("old_sky_colony");
 
-    private static ResourceKey<Biome> cKey(String path) {
+    private static @NotNull ResourceKey<Biome> cKey(String path) {
         return ResourceKey.create(Registries.BIOME, EdenRing.makeID(path));
     }
 

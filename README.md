@@ -1,6 +1,6 @@
 # Eden Ring Reforked
 
-This Is A Fork Of Paulevs Eden Ring Mod for MC 1.20.1 and Up
+This Is A Fork Of Paulevs Eden Ring Mod for MC 1.20.4 and Up
 
 ### Importing:
 * Clone repo
@@ -14,7 +14,6 @@ This Is A Fork Of Paulevs Eden Ring Mod for MC 1.20.1 and Up
 * Mod .jar will be in ./build/libs
 
 ### Mod Request:
-* Sodium (To Fix Some Visual Bugs)
 * BCLib 3.0.14
 * Fabric API (Obviously)
 
