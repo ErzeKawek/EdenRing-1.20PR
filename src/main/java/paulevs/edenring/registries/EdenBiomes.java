@@ -12,6 +12,10 @@ import paulevs.edenring.world.biomes.EdenRingBiome;
 
 public class EdenBiomes {
 
+    public static final BiomeAPI.BiomeType EDEN = new BiomeAPI.BiomeType("EDEN");
+    public static final BiomeAPI.BiomeType EDEN_CAVE = new BiomeAPI.BiomeType("EDEN_CAVE", EDEN);
+    public static final BiomeAPI.BiomeType EDEN_LAND = new BiomeAPI.BiomeType("EDEN_LAND", EDEN);
+    public static final BiomeAPI.BiomeType EDEN_VOID = new BiomeAPI.BiomeType("EDEN_VOID", EDEN);
     // LAND //
     public static final ResourceKey<Biome> STONE_GARDEN = cKey("stone_garden");
     public static final ResourceKey<Biome> GOLDEN_FOREST = cKey("golden_forest");
