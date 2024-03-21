@@ -79,6 +79,7 @@ dependencies {
     modImplementation "io.wispforest:lavender:${project.lavender_version}"
     include "io.wispforest:owo-sentinel:${project.owo_version}"
 
+
     println "Using local BCLib: ${local_bclib}"
     if (local_bclib){
         implementation( project(path:":BCLib", configuration: 'dev') )
@@ -94,6 +95,7 @@ dependencies {
 //        modApi "com.github.quiqueck:WunderLib"
 //        include "com.github.quiqueck:WunderLib"
     }
+    include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.2.2")))
 }
 
 def useOptional(String dep) {
