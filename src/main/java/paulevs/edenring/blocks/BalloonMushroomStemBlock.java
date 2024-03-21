@@ -51,13 +51,13 @@ public class BalloonMushroomStemBlock extends BaseBlockNotFull implements Render
 		BlockState blockState = this.defaultBlockState();
 		
 		Axis axis = ctx.getClickedFace().getAxis();
-        return switch (axis) {
-            case X -> blockState.setValue(BALLOON_MUSHROOM_STEM, BalloonMushroomStemState.EAST_WEST);
-            case Y -> blockState.setValue(BALLOON_MUSHROOM_STEM, BalloonMushroomStemState.NORTH_SOUTH);
-			case Z -> blockState.setValue(BALLOON_MUSHROOM_STEM, BalloonMushroomStemState.SOUTH_WEST);
-        };
-
-    }
+		switch (axis) {
+			case X: return blockState.setValue(BALLOON_MUSHROOM_STEM, BalloonMushroomStemState.EAST_WEST);
+			case Z: return blockState.setValue(BALLOON_MUSHROOM_STEM, BalloonMushroomStemState.NORTH_SOUTH);
+			case Y: return blockState.setValue(BALLOON_MUSHROOM_STEM, BalloonMushroomStemState.EAST_WEST);
+		}
+		return blockState;
+	}
 	
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter view, BlockPos pos, CollisionContext ePos) {
