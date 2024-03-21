@@ -51,14 +51,13 @@ public class BalloonMushroomStemBlock extends BaseBlockNotFull implements Render
 		BlockState blockState = this.defaultBlockState();
 		
 		Axis axis = ctx.getClickedFace().getAxis();
-		switch (axis) {
-			case X: return blockState.setValue(BALLOON_MUSHROOM_STEM, BalloonMushroomStemState.EAST_WEST);
-			case Z: return blockState.setValue(BALLOON_MUSHROOM_STEM, BalloonMushroomStemState.NORTH_SOUTH);
-			case Y: return blockState.setValue(BALLOON_MUSHROOM_STEM, BalloonMushroomStemState.EAST_WEST);
-		}
-		
-		return blockState;
-	}
+        return switch (axis) {
+            case X -> blockState.setValue(BALLOON_MUSHROOM_STEM, BalloonMushroomStemState.EAST_WEST);
+            case Y -> blockState.setValue(BALLOON_MUSHROOM_STEM, BalloonMushroomStemState.NORTH_SOUTH);
+			case Z -> blockState.setValue(BALLOON_MUSHROOM_STEM, BalloonMushroomStemState.SOUTH_WEST);
+        };
+
+    }
 	
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter view, BlockPos pos, CollisionContext ePos) {
@@ -113,7 +112,7 @@ public class BalloonMushroomStemBlock extends BaseBlockNotFull implements Render
 		}
 		return true;
 	}
-	
+
 	@Override
 	public BlockState updateShape(BlockState state, Direction facing, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos) {
 		if (!canSurvive(state, world, pos)) {
@@ -136,13 +135,14 @@ public class BalloonMushroomStemBlock extends BaseBlockNotFull implements Render
 	}
 	
 	static {
+		// shapes
 		SHAPES.put(BalloonMushroomStemState.UP, Block.box(4, 0, 4, 12, 16, 12));
 		SHAPES.put(BalloonMushroomStemState.NORTH_SOUTH, Block.box(4, 4, 0, 12, 12, 16));
 		SHAPES.put(BalloonMushroomStemState.EAST_WEST, Block.box(0, 4, 4, 16, 12, 12));
 		SHAPES.put(BalloonMushroomStemState.THIN, Block.box(7, 0, 7, 9, 16, 9));
 		SHAPES.put(BalloonMushroomStemState.THIN_TOP, Block.box(2, 0, 2, 14, 16, 14));
 		SHAPES.put(BalloonMushroomStemState.FUR, Block.box(0, 7, 0, 16, 16, 16));
-		
+		// Models
 		MODELS.put(BalloonMushroomStemState.UP, EdenRing.makeID("block/balloon_mushroom_stem"));
 		MODELS.put(BalloonMushroomStemState.NORTH_SOUTH, EdenRing.makeID("block/balloon_mushroom_stem"));
 		MODELS.put(BalloonMushroomStemState.EAST_WEST, EdenRing.makeID("block/balloon_mushroom_stem"));

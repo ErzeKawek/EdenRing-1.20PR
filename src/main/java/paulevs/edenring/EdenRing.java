@@ -121,7 +121,7 @@ public void onInitialize() {
       if (id.equals(resourceLocation)) {
         LootPool.Builder builder = LootPool.lootPool();
         builder.setRolls(ConstantValue.exactly(1));
-        builder.conditionally(LootItemRandomChanceCondition.randomChance(0.4f).build());
+        // builder.conditionally(LootItemRandomChanceCondition.randomChance(0.4f).build());
         builder.add(LootItem.lootTableItem(EdenItems.GUIDE_BOOK));
         table.withPool(builder);
         break;

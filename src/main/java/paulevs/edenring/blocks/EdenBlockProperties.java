@@ -33,11 +33,12 @@ public class EdenBlockProperties extends BlockProperties {
 		UP("up"),
 		NORTH_SOUTH("north_south"),
 		EAST_WEST("east_west"),
+		SOUTH_WEST("south_west"),
 		THIN("thin"),
 		THIN_TOP("thin_top"),
 		FUR("fur");
-		
-		private final String name;
+
+		 private final String name;
 		
 		BalloonMushroomStemState(String name) {
 			this.name = name;
