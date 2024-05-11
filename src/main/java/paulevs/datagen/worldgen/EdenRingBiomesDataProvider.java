@@ -20,7 +20,6 @@ import paulevs.edenring.registries.EdenBiomes;
 import paulevs.edenring.world.biomes.EdenRingBiome;
 import paulevs.edenring.world.biomes.air.AirOceanBiome;
 import paulevs.edenring.world.biomes.air.GraviliteDebrisFieldBiome;
-import paulevs.edenring.world.biomes.air.OldSkyColonyBiome;
 import paulevs.edenring.world.biomes.air.SkyColonyBiome;
 import paulevs.edenring.world.biomes.cave.EmptyCaveBiome;
 import paulevs.edenring.world.biomes.cave.ErodedCaveBiome;
@@ -58,7 +57,6 @@ public class EdenRingBiomesDataProvider extends TagDataProvider<Biome> {
 
     // SUBBIOMES //
     protected static final EdenRingBiome OLD_MYCOTIC_FOREST = registerSubBiome(new OldMycoticForestBiome(), MYCOTIC_FOREST);
-    protected static final EdenRingBiome OLD_SKY_COLONY = registerSubBiome(new OldSkyColonyBiome(), SKY_COLONY);
     public EdenRingBiomesDataProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(TagManager.BIOMES, List.of(EdenRing.MOD_ID), output, registriesFuture);
     }
