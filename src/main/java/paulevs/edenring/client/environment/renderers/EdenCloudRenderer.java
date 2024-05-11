@@ -22,12 +22,17 @@ import paulevs.edenring.client.environment.weather.CloudAnimation;
 public class EdenCloudRenderer implements CloudRenderer {
 	private static final ResourceLocation CLOUDS = EdenRing.makeID("textures/environment/clouds.png");
 	private SpriteGrid grid = new SpriteGrid(CloudAnimation::new, (biome, random) -> {
+		if (biome == null) {
+			// Handle null biome case (e.g., return a default value)
+			return 0; // Or another appropriate value based on your logic
+		}
 		float fog = biome.settings.getFogDensity();
 		if (fog > 1 && random.nextInt(5) > 0) {
 			return (int) (random.nextFloat() * fog * 2);
 		}
 		return random.nextInt(16) == 0 ? 1 : 0;
 	});
+
 
 	
 	@Override
