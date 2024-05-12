@@ -116,7 +116,7 @@ public class EdenFeatures {
 	public static final BCLFeature<BrainTreeFeature, NoneFeatureConfiguration> BRAIN_TREE = registerVegetation("brain_tree", inlineBuild("brain_tree", new BrainTreeFeature()), 8);
 	public static final BCLFeature<AquatusFeature, NoneFeatureConfiguration> AQUATUS = registerVegetation("aquatus", inlineBuild("aquatus", new AquatusFeature()), 8);
 	public static final BCLFeature<VolvoxFeature, NoneFeatureConfiguration> VOLVOX = registerChanced("volvox", Decoration.VEGETAL_DECORATION, inlineBuild("volvox", new VolvoxFeature()), NoneFeatureConfiguration.NONE, 3);
-	public static final BCLFeature<GraviliteDebrisFeature, NoneFeatureConfiguration> GRAVILITE_DEBRIS = registerChanced("gravilite_debris", inlineBuild("gravilite_debris", new GraviliteDebrisFeature()), NoneFeatureConfiguration.NONE, 7);
+	public static final BCLFeature<GraviliteDebrisFeature, NoneFeatureConfiguration> GRAVILITE_DEBRIS = registerChanced("gravilite_debris", inlineBuild("gravilite_debris", new GraviliteDebrisFeature()), NoneFeatureConfiguration.NONE, 2);
 	public static final BCLFeature<VineFeature, NoneFeatureConfiguration> EDEN_VINE = registerVegetation("eden_vine", inlineBuild("eden_vine", new VineFeature()), 2);
 	public static final BCLFeature<RootsFeature, NoneFeatureConfiguration> ROOTS = registerVegetation("roots", inlineBuild("roots", new RootsFeature()), 4);
 	

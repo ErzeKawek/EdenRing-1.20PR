@@ -48,6 +48,7 @@ public class EdenRingBiomesDataProvider extends TagDataProvider<Biome> {
 
     // AIR //
     protected static final EdenRingBiome AIR_OCEAN = registerVoid(new AirOceanBiome());
+    protected static final EdenRingBiome GRAVILITE_DEBRIS_FIELD = registerVoid(new GraviliteDebrisFieldBiome());
     protected static final EdenRingBiome SKY_COLONY = registerVoid(new SkyColonyBiome());
 
     // CAVES //
@@ -57,7 +58,7 @@ public class EdenRingBiomesDataProvider extends TagDataProvider<Biome> {
 
     // SUBBIOMES //
     protected static final EdenRingBiome OLD_MYCOTIC_FOREST = registerSubBiome(new OldMycoticForestBiome(), MYCOTIC_FOREST);
-    protected static final EdenRingBiome GRAVILITE_DEBRIS_FIELD = registerSubBiome(new GraviliteDebrisFieldBiome(), AIR_OCEAN);
+
 
     public EdenRingBiomesDataProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(TagManager.BIOMES, List.of(EdenRing.MOD_ID), output, registriesFuture);
