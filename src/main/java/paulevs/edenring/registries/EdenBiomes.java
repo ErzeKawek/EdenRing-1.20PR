@@ -27,7 +27,7 @@ public class EdenBiomes {
 
     // VOID //
     public static final ResourceKey<Biome> AIR_OCEAN = cKey("air_ocean");
-    public static final ResourceKey<Biome> GRAVILITE_DEBRIS_FIELD = cKey("gravilite_debris_field");
+
     public static final ResourceKey<Biome> SKY_COLONY = cKey("sky_colony");
 
     // CAVES
@@ -36,7 +36,7 @@ public class EdenBiomes {
 
     // SUBBIOMES //
     public static final ResourceKey<Biome> OLD_MYCOTIC_FOREST = cKey("old_mycotic_forest");
-
+    public static final ResourceKey<Biome> GRAVILITE_DEBRIS_FIELD = cKey("gravilite_debris_field");
     private static ResourceKey<Biome> cKey(String path) {
         return ResourceKey.create(Registries.BIOME, EdenRing.makeID(path));
     }
