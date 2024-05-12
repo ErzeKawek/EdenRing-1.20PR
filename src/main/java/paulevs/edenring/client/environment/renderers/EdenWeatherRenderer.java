@@ -19,19 +19,22 @@ import paulevs.edenring.registries.EdenBiomes;
 
 public class EdenWeatherRenderer implements WeatherRenderer {
 	private static final ResourceLocation LIGHTNING = EdenRing.makeID("textures/environment/lightning.png");
-	private SpriteGrid grid = new SpriteGrid(LightningAnimation::new, (biome, random) -> biome.getBiomeKey() == EdenBiomes.BRAINSTORM ? random.nextInt(3) : 0);
-	
+	private SpriteGrid grid = new SpriteGrid(LightningAnimation::new, (biome, random) -> {
+		// Check for null biome before accessing getBiomeKey()
+		return biome != null && biome.getBiomeKey() == EdenBiomes.BRAINSTORM ? random.nextInt(3) : 0;
+	});
+
 	@Override
 	@SuppressWarnings("resource")
 	public void render(WorldRenderContext context) {
 		PoseStack poseStack = context.matrixStack();
 		ClientLevel level = context.world();
 		Camera camera = context.camera();
-		
+
 		if (poseStack == null || camera == null || level == null) return;
-		
+
 		// Init
-		
+
 		RenderSystem.enableBlend();
 		RenderSystem.enableDepthTest();
 		RenderSystem.depthMask(true);
@@ -39,25 +42,25 @@ public class EdenWeatherRenderer implements WeatherRenderer {
 		RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 		RenderSystem.setShaderTexture(0, LIGHTNING);
 		context.lightmapTextureManager().turnOnLightLayer();
-		
+
 		// Start
-		
+
 		poseStack.pushPose();
-		
+
 		Minecraft minecraft = context.gameRenderer().getMinecraft();
 		TransformHelper.applyPerspective(poseStack, camera);
 		if (minecraft.options.bobView().get() && EdenRingClient.hasIris()) {
 			TransformHelper.fixBobbing(poseStack, minecraft.player, context.tickDelta());
 		}
-		
+
 		ChunkPos pos = camera.getEntity().chunkPosition();
 		int distance = context.gameRenderer().getMinecraft().options.renderDistance().get();
 		grid.render(level, pos, distance << 1 | 1, poseStack, camera, context.tickDelta(), null);
-		
+
 		poseStack.popPose();
-		
+
 		// Finalise
-		
+
 		RenderSystem.enableCull();
 		RenderSystem.disableBlend();
 		context.lightmapTextureManager().turnOffLightLayer();
