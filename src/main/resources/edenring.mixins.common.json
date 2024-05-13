@@ -15,7 +15,10 @@
 		"ItemEntityMixin",
 		"NoiseChunkMixin",
 		"BushBlockMixin",
-		"EntityMixin"
+		"EntityMixin",
+		"MobMixin",
+		"AllayMixin",
+		"VexMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
