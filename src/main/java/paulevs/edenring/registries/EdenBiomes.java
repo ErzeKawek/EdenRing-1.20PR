@@ -33,6 +33,7 @@ public class EdenBiomes {
     // CAVES
     public static final ResourceKey<Biome> EMPTY_CAVE = cKey("empty_cave");
     public static final ResourceKey<Biome> ERODED_CAVE = cKey("eroded_cave");
+    // public static final ResourceKey<Biome> COLD_CAVE = cKey("cold_cave");
 
     // SUBBIOMES //
     public static final ResourceKey<Biome> OLD_MYCOTIC_FOREST = cKey("old_mycotic_forest");
