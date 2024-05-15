@@ -4,6 +4,6 @@ import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeSettings;
 
 public class CBCLBiomeSettings extends BCLBiomeSettings {
     public CBCLBiomeSettings() {
-        super(); // Call the protected constructor of the superclass
+        super();
     }
 }
