@@ -87,8 +87,12 @@ public class EdenPortalBlockEntity extends BlockEntity {
 		}
 		
 		MinecraftServer server = level.getServer();
-		ResourceKey<Level> key = level.dimension().equals(EdenRing.EDEN_RING_KEY) ? Level.OVERWORLD : EdenRing.EDEN_RING_KEY;
-		ServerLevel destination = server.getLevel(key);
+		ResourceKey<Level> key;
+        if (level.dimension().equals(EdenRing.EDEN_RING_KEY)) key = Level.OVERWORLD;
+		else if (level.dimension().equals(EdenRing.EDEN_RING_KEY)) {
+			key = Level.NETHER;
+		} else key = EdenRing.EDEN_RING_KEY;
+        ServerLevel destination = server.getLevel(key);
 		
 		if (destination == null) {
 			return;
