@@ -110,7 +110,6 @@ public void onInitialize() {
     new ResourceLocation("chests/end_city_treasure"),
     new ResourceLocation("chests/buried_treasure"),
     new ResourceLocation("chests/desert_pyramid"),
-    new ResourceLocation("chests/igloo_chest"),
     new ResourceLocation("chests/jungle_temple"),
     new ResourceLocation("chests/pillager_outpost"),
     new ResourceLocation("chests/shipwreck_treasure"),

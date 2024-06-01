@@ -32,6 +32,6 @@ public class FlintAndSteelItemMixin {
 	}
 	
 	private boolean correctDimension(ResourceKey<Level> dimension) {
-		return dimension.equals(Level.OVERWORLD) || dimension.equals(EdenRing.EDEN_RING_KEY);
+		return dimension.equals(Level.OVERWORLD) || dimension.equals(EdenRing.EDEN_RING_KEY) || dimension.equals(Level.NETHER);
 	}
 }
