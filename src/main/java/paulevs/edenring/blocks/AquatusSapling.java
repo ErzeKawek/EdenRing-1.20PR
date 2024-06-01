@@ -15,6 +15,6 @@ public class AquatusSapling extends FeatureSaplingBlock {
 	
 	@Override
 	protected boolean mayPlaceOn(BlockState state, BlockGetter world, BlockPos pos) {
-		return state.is(Blocks.SAND) || state.is(Blocks.GRAVEL) || super.mayPlaceOn(state, world, pos);
+		return state.is(Blocks.SAND) || state.is(Blocks.GRAVEL) || state.is(Blocks.SUSPICIOUS_SAND) || state.is(Blocks.SUSPICIOUS_GRAVEL) || super.mayPlaceOn(state, world, pos);
 	}
 }
