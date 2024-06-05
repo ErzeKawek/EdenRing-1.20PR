@@ -142,11 +142,11 @@ public class EdenBlocks {
 	
 	public static final Block PORTAL_BLOCK = registerBlockOnly("portal_block", new EdenPortalBlock());
 	public static final Block PORTAL_CENTER = registerBlockOnly("portal_center", new EdenPortalCenterBlock());
-	
+	public static final Block ASTRALLIUM_ORE = register("astrallium_ore", new AstralliumOreBlock());
 	//public static final Block INSULECTRICA_STEM = register("insulectrica_stem", new BaseBlock(FabricBlockSettings.copyOf(Blocks.STONE)));
 	//public static final Block INSULECTRICA_ROD = register("insulectrica_rod", new BaseBlock(FabricBlockSettings.copyOf(Blocks.STONE)));
 	//public static final block CLOUD_ANEMONE_BLOCK = register("cloud_anemone_block", new CloudAnemoneBlock());
-	//public static final block ASTRALLIUM_ORE = register("astrallium_ore", new AstralliumOreBlock());
+
 	//public static final Block METAL_SPONGE = register("metal_sponge", new MetalSpongeBlock());
 	//public static final Block SOAKED_METAL_SPONGE = register("metal_sponge_soaked", new SoakedMetalSpongeBlock());
 
