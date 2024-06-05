@@ -32,7 +32,6 @@ import paulevs.edenring.EdenRing;
 import paulevs.edenring.blocks.*;
 import paulevs.edenring.blocks.complex.BrainTreeComplexMaterial;
 import paulevs.edenring.blocks.complex.EdenWoodenComplexMaterial;
-import paulevs.edenring.config.Configs;
 
 import java.util.Map;
 
