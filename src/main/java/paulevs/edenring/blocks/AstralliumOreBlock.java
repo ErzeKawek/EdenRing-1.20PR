@@ -62,16 +62,6 @@ public class AstralliumOreBlock extends Block {
     }
 
     @Environment(EnvType.CLIENT)
-    public BlockModel getBlockModel(ResourceLocation blockId, BlockState blockState) {
-        String modId = blockId.getNamespace();
-        Map<String, String> textures = Maps.newHashMap();
-        textures.put("%top%", modId + ":block/astrallium_ore");
-        textures.put("%side%", modId + ":block/astrallium_ore");
-        textures.put("%overlay%", modId + ":block/astrallium_ore");
-        return null;
-    }
-
-    @Environment(EnvType.CLIENT)
     public static void clientInit() {
         BlockRenderLayerMap.INSTANCE.putBlock(EdenBlocks.ASTRALLIUM_ORE, RenderType.solid());
     }
