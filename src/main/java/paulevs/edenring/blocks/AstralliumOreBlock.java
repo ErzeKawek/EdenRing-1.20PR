@@ -1,7 +1,7 @@
 package paulevs.edenring.blocks;
 
 import com.google.common.collect.Maps;
-import net.minecraft.client.renderer.block.model.BlockModel;
+import net.minecraft.client.renderer.block.model.MultiVariant;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.material.PushReaction;
@@ -20,14 +20,13 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
 import org.betterx.bclib.client.models.ModelsHelper;
-import org.betterx.bclib.client.models.PatternsHelper;
+import paulevs.edenring.EdenRing;
 import paulevs.edenring.registries.EdenBlocks;
 import paulevs.edenring.registries.EdenItems;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 
 public class AstralliumOreBlock extends Block {
@@ -60,6 +59,7 @@ public class AstralliumOreBlock extends Block {
             return dropsOriginal;
         return Collections.singletonList(new ItemStack(EdenItems.ASTRALLIUM));
     }
+
 
     @Environment(EnvType.CLIENT)
     public static void clientInit() {

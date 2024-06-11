@@ -52,7 +52,8 @@
 		"bclib": {
 			"updater_icon": "icon_updater.png",
 			"downloads": {
-				"curseforge": "https://modrinth.com/mod/eden-ring-reforked"
+				"curseforge": "https://www.curseforge.com/minecraft/mc-mods/eden-ring-reforked",
+				"modrinth": "https://modrinth.com/mod/eden-ring-reforked"
 			}
 		}
 	}
