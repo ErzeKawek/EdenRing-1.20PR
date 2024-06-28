@@ -19,7 +19,9 @@ import paulevs.edenring.registries.EdenBiomes;
 
 public class EdenWeatherRenderer implements WeatherRenderer {
 	private static final ResourceLocation LIGHTNING = EdenRing.makeID("textures/environment/lightning.png");
-	private SpriteGrid grid = new SpriteGrid(LightningAnimation::new, (biome, random) -> biome.getBiomeKey() == EdenBiomes.BRAINSTORM ? random.nextInt(3) : 0);
+	private SpriteGrid grid = new SpriteGrid(LightningAnimation::new, (biome, random) -> {
+		return biome != null && biome.getBiomeKey() == EdenBiomes.BRAINSTORM ? random.nextInt(3) : 0;
+	});
 	
 	@Override
 	@SuppressWarnings("resource")

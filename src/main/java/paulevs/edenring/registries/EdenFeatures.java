@@ -116,12 +116,9 @@ public class EdenFeatures {
 	public static final BCLFeature<BrainTreeFeature, NoneFeatureConfiguration> BRAIN_TREE = registerVegetation("brain_tree", inlineBuild("brain_tree", new BrainTreeFeature()), 8);
 	public static final BCLFeature<AquatusFeature, NoneFeatureConfiguration> AQUATUS = registerVegetation("aquatus", inlineBuild("aquatus", new AquatusFeature()), 8);
 	public static final BCLFeature<VolvoxFeature, NoneFeatureConfiguration> VOLVOX = registerChanced("volvox", Decoration.VEGETAL_DECORATION, inlineBuild("volvox", new VolvoxFeature()), NoneFeatureConfiguration.NONE, 3);
-	public static final BCLFeature<GiganticVolvoxFeature, NoneFeatureConfiguration> GIGANTIC_VOLVOX = registerChanced("gigantic_volvox", Decoration.VEGETAL_DECORATION, inlineBuild("gigantic_volvox", new GiganticVolvoxFeature()), NoneFeatureConfiguration.NONE, 1);
-	public static final BCLFeature<HugeVolvoxFeature, NoneFeatureConfiguration> HUGE_VOLVOX = registerChanced("huge_volvox", Decoration.VEGETAL_DECORATION, inlineBuild("huge_volvox", new HugeVolvoxFeature()), NoneFeatureConfiguration.NONE, 3);
-
+	public static final BCLFeature<GraviliteDebrisFeature, NoneFeatureConfiguration> GRAVILITE_DEBRIS = registerChanced("gravilite_debris", inlineBuild("gravilite_debris", new GraviliteDebrisFeature()), NoneFeatureConfiguration.NONE, 7);
 	public static final BCLFeature<VineFeature, NoneFeatureConfiguration> EDEN_VINE = registerVegetation("eden_vine", inlineBuild("eden_vine", new VineFeature()), 2);
 	public static final BCLFeature<RootsFeature, NoneFeatureConfiguration> ROOTS = registerVegetation("roots", inlineBuild("roots", new RootsFeature()), 4);
-	
 	public static final BCLFeature<SixSideScatter, NoneFeatureConfiguration> PARIGNUM = registerVegetation("parignum", inlineBuild("parignum", new SixSideScatter((SixSidePlant) EdenBlocks.PARIGNUM)), 8);
 	public static final BCLFeature<TallMushroomFeature, NoneFeatureConfiguration> TALL_BALLOON_MUSHROOM = registerVegetation("tall_balloon_mushroom", inlineBuild("tall_balloon_mushroom", new TallMushroomFeature()), 6);
 	public static final BCLFeature<GraviliteCrystalFeature, NoneFeatureConfiguration> GRAVILITE_CRYSTAL = registerRawGen("gravilite_crystal", inlineBuild("gravilite_crystal", new GraviliteCrystalFeature()), 100);

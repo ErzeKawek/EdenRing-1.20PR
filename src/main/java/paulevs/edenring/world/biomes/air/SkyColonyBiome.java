@@ -23,7 +23,6 @@ public class SkyColonyBiome extends EdenRingBiome.Config {
                 .music(EdenSounds.MUSIC_COMMON)
                 .particles(EdenParticles.YOUNG_VOLVOX, 0.0001F)
                 .feature(EdenFeatures.VOLVOX)
-                .feature(EdenFeatures.GIGANTIC_VOLVOX)
                 .feature(EdenFeatures.PARIGNUM);
     }
 }

@@ -2,14 +2,15 @@
 	"schemaVersion": 1,
 	"id": "edenring",
 	"version": "${version}",
-	"name": "Eden Ring",
+	"name": "Eden Ring Reforked",
 	"description": "Sci-Fi dimension mod with some unique things",
 	"authors": [
 		"paulevs (code and art)",
 		"y3z0n (music and sounds)",
 		"Firel (Music)",
 		"Erzekawek (port dev)",
-		"ChristopherJ123 (port dev)"
+		"ChristopherJ123 (port dev)",
+		"OpenBagTwo (port dev)"
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/eden-ring-reforked",

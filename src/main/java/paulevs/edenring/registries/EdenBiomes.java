@@ -37,7 +37,6 @@ public class EdenBiomes {
 
     // SUBBIOMES //
     public static final ResourceKey<Biome> OLD_MYCOTIC_FOREST = cKey("old_mycotic_forest");
-    public static final ResourceKey<Biome> OLD_SKY_COLONY = cKey("old_sky_colony");
 
     private static @NotNull ResourceKey<Biome> cKey(String path) {
         return ResourceKey.create(Registries.BIOME, EdenRing.makeID(path));
