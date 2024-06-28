@@ -76,8 +76,6 @@ dependencies {
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    modImplementation "io.wispforest:lavender:${project.lavender_version}"
-    include "io.wispforest:owo-sentinel:${project.owo_version}"
 
 
     println "Using local BCLib: ${local_bclib}"
