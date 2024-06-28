@@ -20,6 +20,6 @@ public class GraviliteDebrisFieldBiome extends EdenRingBiome.Config {
                 .waterColor(0x00c3ff)
                 .plantsColor(0x44854d)
                 .music(EdenSounds.MUSIC_COMMON)
-                .feature(EdenFeatures.GRAVILITE_CRYSTAL);
+                .feature(EdenFeatures.GRAVILITE_DEBRIS);
     }
 }
