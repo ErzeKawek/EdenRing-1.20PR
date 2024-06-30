@@ -1,7 +1,9 @@
 # Eden Ring Reforked
 [![](https://jitpack.io/v/ErzeKawek/EdenRing-Reforked.svg)](https://jitpack.io/#ErzeKawek/EdenRing-Reforked)
 
-This Is A Fork Of Paulevs Eden Ring Mod for MC 1.20.1≥
+**THIS IS A MULTIPLATFORM EXPERIMENTAL BRANCH!, Errors Might Occur!**
+
+This Is A Fork Of Paulevs Eden Ring Mod for Forge And Fabric 1.20.1
 
 ### Importing:
 * Clone repo
@@ -32,3 +34,8 @@ This Is A Fork Of Paulevs Eden Ring Mod for MC 1.20.1≥
   | 1.20.4  | ✓       |
   | 1.20.6  | ✕       |
   | 1.21    | ⚒       |
+
+  | Modloader | Status            |
+      |-----------|-------------------|
+  | Forge     | ⚒                 |
+  | Fabric    | Check Main Branch |
