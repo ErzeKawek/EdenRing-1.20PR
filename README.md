@@ -1,6 +1,7 @@
 # Eden Ring Reforked
+[![](https://jitpack.io/v/ErzeKawek/EdenRing-Reforked.svg)](https://jitpack.io/#ErzeKawek/EdenRing-Reforked)
 
-This Is A Fork Of Paulevs Eden Ring Mod for MC 1.20.1 and Up
+This Is A Fork Of Paulevs Eden Ring Mod for MC 1.20.1≥
 
 ### Importing:
 * Clone repo
@@ -14,16 +15,20 @@ This Is A Fork Of Paulevs Eden Ring Mod for MC 1.20.1 and Up
 * Mod .jar will be in ./build/libs
 
 ### Mod Request:
-* Sodium (To Fix Some Visual Bugs)
-* BCLib 3.0.14
+* BCLib 3.0.14≥
 * Fabric API (Obviously)
+* Continuity (Optional)
 
 ### BetterX Fork Crew:
 * ErzeKawek (Main Dev)
 * ChristopherJ123 (Dev)
 * Villhume (For Major Bugfixing)
 
-[![](https://jitpack.io/v/paulevsGitch/EdenRing.svg)](https://jitpack.io/#paulevsGitch/EdenRing)
-
-
-
+  | Version | Status  |
+    |---------|---------|
+  | 1.19.4  | ✕       |
+  | 1.20.1  | ✓ (LTS) |
+  | 1.20.2  | ✕       |
+  | 1.20.4  | ✓       |
+  | 1.20.6  | ✕       |
+  | 1.21    | ⚒       |
