@@ -1,4 +1,5 @@
 # Eden Ring Reforked
+[![](https://jitpack.io/v/ErzeKawek/EdenRing-Reforked.svg)](https://jitpack.io/#ErzeKawek/EdenRing-Reforked)
 
 This Is A Fork Of Paulevs Eden Ring Mod for MC 1.20.4≥
 
@@ -31,8 +32,5 @@ This Is A Fork Of Paulevs Eden Ring Mod for MC 1.20.4≥
   | 1.20.4  | ✓       |
   | 1.20.6  | ✕       |
   | 1.21    | ⚒       |
-
-[![](https://jitpack.io/v/ErzeKawek/EdenRingReforked.svg)](https://jitpack.io/#ErzeKawek/Eden-Ring-Reforked)
-
 
 
