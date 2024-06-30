@@ -1,6 +1,0 @@
-{
-    "parent": "bclib:block/taburet",
-    "textures": {
-      "texture": "edenring:block/auritis_planks"
-    }
-}

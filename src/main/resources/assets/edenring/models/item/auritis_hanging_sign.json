@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "edenring:item/auritis_hanging_sign"
-  }
-}

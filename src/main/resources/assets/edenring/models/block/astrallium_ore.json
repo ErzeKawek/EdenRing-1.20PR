@@ -1,8 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "edenring:block/astrallium_ore",
-    "particle": "edenring:block/astrallium_ore"
-  },
-  "render_type": "solid"
-}
