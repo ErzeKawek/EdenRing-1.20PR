@@ -29,6 +29,6 @@ This Is A Fork Of Paulevs Eden Ring Mod for MC 1.20.1≥
   | 1.19.4  | ✕       |
   | 1.20.1  | ✓ (LTS) |
   | 1.20.2  | ✕       |
-  | 1.20.4  | ✓       |
+  | 1.20.4  | ✓ (LTS) |
   | 1.20.6  | ✕       |
   | 1.21    | ⚒       |
