@@ -14,7 +14,7 @@ import org.betterx.bclib.items.ModelProviderItem;
 import paulevs.edenring.gui.GuideBookScreen;
 
 public class GuideBookItem extends ModelProviderItem {
-	public GuideBookItem(Properties properties) {
+	/*public GuideBookItem(Properties properties) {
 		super(properties);
 	}
 	
@@ -32,5 +32,5 @@ public class GuideBookItem extends ModelProviderItem {
 	private void openClientScreen() {
 		Minecraft minecraft = Minecraft.getInstance();
 		minecraft.setScreen(new GuideBookScreen());
-	}
+	}*/
 }
