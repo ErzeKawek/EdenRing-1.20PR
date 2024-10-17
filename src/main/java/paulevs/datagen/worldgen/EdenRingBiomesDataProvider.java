@@ -3,6 +3,7 @@ package paulevs.datagen.worldgen;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
+import net.minecraft.data.worldgen.BootstrapContext;
 import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeBuilder;
 import org.betterx.bclib.api.v2.levelgen.biomes.BiomeAPI;
 import org.betterx.bclib.api.v2.levelgen.biomes.BiomeAPI.BiomeType;
@@ -15,6 +16,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.world.level.biome.Biome;
+import org.betterx.wover.biome.api.builder.BiomeBuilder;
 import paulevs.edenring.EdenRing;
 import paulevs.edenring.registries.EdenBiomes;
 import paulevs.edenring.world.biomes.EdenRingBiome;
@@ -64,8 +66,8 @@ public class EdenRingBiomesDataProvider extends TagDataProvider<Biome> {
         super(TagManager.BIOMES, List.of(EdenRing.MOD_ID), output, registriesFuture);
     }
 
-    public static void bootstrap(BootstapContext<Biome> ctx) {
-        BCLBiomeBuilder.registerUnbound(ctx);
+    public static void bootstrap(BootstrapContext<Biome> ctx) {
+        BiomeBuilder.;
     }
 
     public static void ensureStaticallyLoaded() {

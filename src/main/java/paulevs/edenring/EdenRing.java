@@ -3,9 +3,6 @@ package paulevs.edenring;
 import org.betterx.bclib.api.v2.datafixer.DataFixerAPI;
 import org.betterx.bclib.api.v2.datafixer.ForcedLevelPatch;
 import org.betterx.bclib.api.v2.datafixer.MigrationProfile;
-import org.betterx.bclib.creativetab.BCLCreativeTabManager;
-import org.betterx.bclib.registry.BaseRegistry;
-import org.betterx.worlds.together.util.Logger;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
@@ -21,7 +18,8 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
-import org.betterx.worlds.together.world.WorldConfig;
+import org.betterx.wover.core.api.Logger;
+import org.betterx.wover.core.api.ModCore;
 import paulevs.edenring.config.Configs;
 import paulevs.edenring.paintings.EdenPaintings;
 import paulevs.edenring.registries.*;
@@ -30,11 +28,13 @@ import paulevs.edenring.world.generator.EdenBiomeSource;
 import paulevs.edenring.world.generator.GeneratorOptions;
 
 public class EdenRing implements ModInitializer {
-public static final String MOD_ID = "edenring";
-public static final Logger LOGGER = new Logger(MOD_ID);
+  public static final ModCore C = ModCore.create("edenring");
+  public static final String MOD_ID = C.namespace;
+  public static final Logger LOGGER = C.LOG;
 
-public static final ResourceKey<DimensionType> EDEN_RING_TYPE_KEY = ResourceKey.create(Registries.DIMENSION_TYPE, makeID(MOD_ID));
-public static final ResourceKey<Level> EDEN_RING_KEY = ResourceKey.create(Registries.DIMENSION, makeID(MOD_ID));
+
+public static final ResourceKey<DimensionType> EDEN_RING_TYPE_KEY = ResourceKey.create(Registries.DIMENSION_TYPE, C.mk(MOD_ID));
+public static final ResourceKey<Level> EDEN_RING_KEY = ResourceKey.create(Registries.DIMENSION, C.mk(MOD_ID));
 	
 @Override
 public void onInitialize() {
@@ -63,7 +63,7 @@ public void onInitialize() {
   EdenParticles.ensureStaticallyLoadedServerside();
   Configs.saveConfigs();
   
-  Registry.register(BuiltInRegistries.BIOME_SOURCE, makeID("biome_source"), EdenBiomeSource.CODEC);
+  Registry.register(BuiltInRegistries.BIOME_SOURCE, C.mk("biome_source"), EdenBiomeSource.CODEC);
   EdenPortal.init();
   
   DataFixerAPI.registerPatch(() -> new ForcedLevelPatch(MOD_ID, "0.2.0") {

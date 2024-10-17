@@ -76,8 +76,7 @@ public class BaseCTBlock extends BaseBlock implements RenderLayerProvider {
 	protected boolean canConnect(BlockState center, Direction dir, BlockState side) {
 		return side.is(this);
 	}
-	
-	@Override
+
 	@Environment(EnvType.CLIENT)
 	public UnbakedModel getModelVariant(ResourceLocation stateId, BlockState blockState, Map<ResourceLocation, UnbakedModel> modelCache) {
 		BlockState def = defaultBlockState();
@@ -97,13 +96,13 @@ public class BaseCTBlock extends BaseBlock implements RenderLayerProvider {
 			Optional<String> pattern = PatternsHelper.createJson(BasePatterns.BLOCK_BASE, textures);
 			
 			BlockModel model = ModelsHelper.fromPattern(pattern);
-			modelCache.put(keyCube, model);
+			modelCache.put(keyCube.id(), model);
 			
 			for (int i = 0; i < 4; i++) {
 				textures.put("%texture%", modID + ":block/" + name + "_edge_" + i);
 				pattern = PatternsHelper.createJson(EdenPatterns.BLOCK_UP_QUAD, textures);
 				model = ModelsHelper.fromPattern(pattern);
-				modelCache.put(keyQuad[i], model);
+				modelCache.put(keyQuad[i].id(), model);
 			}
 		}
 		

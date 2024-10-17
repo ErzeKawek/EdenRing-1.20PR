@@ -17,7 +17,7 @@ import paulevs.edenring.registries.EdenBlocks;
 
 public class LimphiumSapling extends OverlayPlantBlock {
 	public LimphiumSapling() {
-		super(FabricBlockSettings.copyOf(Blocks.GRASS).randomTicks());
+		super(FabricBlockSettings.copyOf(Blocks.GRASS_BLOCK).randomTicks());
 	}
 	
 	@Override

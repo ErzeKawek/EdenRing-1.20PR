@@ -17,6 +17,7 @@ import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeSettings;
 import org.betterx.bclib.api.v2.levelgen.biomes.BiomeAPI;
 import org.betterx.bclib.api.v2.levelgen.surface.SurfaceRuleBuilder;
 import org.betterx.bclib.interfaces.SurfaceMaterialProvider;
+import org.betterx.wover.surface.api.SurfaceRuleBuilder;
 import org.jetbrains.annotations.NotNull;
 import paulevs.edenring.EdenRing;
 import paulevs.edenring.registries.EdenBiomes;
@@ -151,7 +152,7 @@ public class EdenRingBiome extends BCLBiome implements SurfaceMaterialProvider {
     }
 
     public EdenRingBiome(ResourceKey<Biome> biomeID, BCLBiomeSettings settings) {
-        super(biomeID, settings != null ? settings : new CBCLBiomeSettings());
+        super(biomeID, settings);
     }
 
     public static EdenRingBiome create(Config biomeConfig, BiomeAPI.BiomeType type) {
