@@ -10,7 +10,7 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import org.betterx.bclib.api.v2.levelgen.features.features.DefaultFeature;
 import org.betterx.bclib.blocks.BlockProperties;
-import org.betterx.bclib.blocks.BlockProperties.TripleShape;
+import org.betterx.wover.block.api.BlockProperties.TripleShape;
 import org.betterx.bclib.noise.OpenSimplexNoise;
 import org.betterx.bclib.sdf.SDF;
 import org.betterx.bclib.sdf.operator.SDFDisplacement;
@@ -82,7 +82,7 @@ public class StonePillar extends DefaultFeature {
 			}
 			if (info.getStateUp().isAir() && noise.eval(info.getPos().getX() * 0.4F, info.getPos().getY() * 0.4F, info.getPos().getZ() * 0.4F) > 0.1) {
 				if (random.nextInt(5) == 0) {
-					info.setBlockPos(info.getPos().above(), Blocks.GRASS.defaultBlockState());
+					info.setBlockPos(info.getPos().above(), Blocks.GRASS_BLOCK.defaultBlockState());
 				}
 				return EdenBlocks.MOSSY_STONE.defaultBlockState();
 			}
@@ -94,7 +94,7 @@ public class StonePillar extends DefaultFeature {
 			}
 			else if (noise.eval(info.getPos().getX() * 0.4F, info.getPos().getY() * 0.4F + 150, info.getPos().getZ() * 0.4F) > 0.3) {
 				if (info.getStateUp().isAir() && random.nextInt(5) == 0) {
-					info.setBlockPos(info.getPos().above(), Blocks.GRASS.defaultBlockState());
+					info.setBlockPos(info.getPos().above(), Blocks.GRASS_BLOCK.defaultBlockState());
 				}
 				return Blocks.MOSS_BLOCK.defaultBlockState();
 			}

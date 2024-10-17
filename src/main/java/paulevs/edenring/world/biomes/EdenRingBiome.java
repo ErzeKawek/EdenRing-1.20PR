@@ -17,6 +17,7 @@ import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeSettings;
 import org.betterx.bclib.api.v2.levelgen.biomes.BiomeAPI;
 import org.betterx.bclib.api.v2.levelgen.surface.SurfaceRuleBuilder;
 import org.betterx.bclib.interfaces.SurfaceMaterialProvider;
+import org.betterx.wover.generator.api.biomesource.WoverBiomeBuilder;
 import org.betterx.wover.surface.api.SurfaceRuleBuilder;
 import org.jetbrains.annotations.NotNull;
 import paulevs.edenring.EdenRing;
@@ -28,7 +29,7 @@ import paulevs.edenring.world.CBCLBiomeSettings;
 import java.util.List;
 import java.util.Optional;
 
-public class EdenRingBiome extends BCLBiome implements SurfaceMaterialProvider {
+public class EdenRingBiome extends WoverBiomeBuilder.WoverBiome implements SurfaceMaterialProvider {
     @SuppressWarnings("null")
     public static final Codec<EdenRingBiome> CODEC = RecordCodecBuilder.create(instance ->
             codecWithSettings(
@@ -41,11 +42,11 @@ public class EdenRingBiome extends BCLBiome implements SurfaceMaterialProvider {
     public static final KeyDispatchDataCodec<EdenRingBiome> KEY_CODEC = KeyDispatchDataCodec.of(CODEC);
 
     @Override
-    public KeyDispatchDataCodec<? extends BCLBiome> codec() {
+    public KeyDispatchDataCodec<? extends WoverBiomeBuilder.WoverBiome> codec() {
         return KEY_CODEC;
     }
 
-    protected EdenRingBiome(
+    protected EdenRingBiome (
             float terrainHeight,
             float fogDensity,
             float genChance,
@@ -159,12 +160,12 @@ public class EdenRingBiome extends BCLBiome implements SurfaceMaterialProvider {
         return create(biomeConfig, type, null);
     }
 
-    public static EdenRingBiome createSubBiome(Config data, @NotNull BCLBiome parentBiome) {
-        return create(data, parentBiome.getIntendedType(), parentBiome);
+    public static EdenRingBiome createSubBiome(Config data, @NotNull WoverBiomeBuilder.WoverBiome parentBiome) {
+        return create(data, parentBiome.parent(), parentBiome);
     }
 
 
-    public static EdenRingBiome create(Config biomeConfig, BiomeAPI.BiomeType type, BCLBiome parentBiome) {
+    public static EdenRingBiome create(Config biomeConfig, BiomeAPI.BiomeType type, WoverBiomeBuilder.WoverBiome parentBiome) {
         BCLBiomeBuilder builder = BCLBiomeBuilder
                 .start(biomeConfig.ID)
                 .music(EdenSounds.MUSIC_COMMON)

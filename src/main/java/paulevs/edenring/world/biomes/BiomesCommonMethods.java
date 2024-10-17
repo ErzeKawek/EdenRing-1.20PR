@@ -4,10 +4,12 @@ import net.minecraft.data.worldgen.placement.CavePlacements;
 import net.minecraft.data.worldgen.placement.OrePlacements;
 import net.minecraft.world.level.levelgen.GenerationStep.Decoration;
 import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeBuilder;
+import org.betterx.wover.biome.api.builder.BiomeBuilder;
+import org.betterx.wover.generator.api.biomesource.WoverBiomeBuilder;
 import paulevs.edenring.registries.EdenFeatures;
 
 public class BiomesCommonMethods {
-	public static void addDefaultLandFeatures(BCLBiomeBuilder builder) {
+	public static void addDefaultLandFeatures(BiomeBuilder.VanillaBuilder builder) {
 		builder
 			//.carver(Carving.AIR, EdenCarvers.CAVE_CONFIGURED)
 			.feature(EdenFeatures.SLATE_LAYER)

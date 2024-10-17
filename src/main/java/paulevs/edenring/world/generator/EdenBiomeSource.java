@@ -1,6 +1,7 @@
 package paulevs.edenring.world.generator;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
@@ -9,13 +10,14 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.RegistryOps;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.biome.Climate.Sampler;
-import org.betterx.bclib.api.v2.generator.BiomePicker;
-import org.betterx.bclib.api.v2.generator.map.hex.HexBiomeMap;
-import org.betterx.bclib.interfaces.BiomeMap;
+import org.betterx.wover.generator.api.biomesource.WoverBiomePicker;
+import org.betterx.wover.generator.impl.map.hex.HexBiomeMap;
+import org.betterx.wover.generator.api.map.BiomeMap;
 import paulevs.edenring.EdenRing;
 import paulevs.datagen.worldgen.EdenRingBiomesDataProvider;
 import paulevs.edenring.noise.InterpolationCell;
@@ -36,9 +38,9 @@ public class EdenBiomeSource extends BiomeSource {
 	);
 	
 	private Map<ChunkPos, InterpolationCell> terrainCache = new ConcurrentHashMap<>();
-	private BiomePicker pickerLand;
-	private BiomePicker pickerVoid;
-	private BiomePicker pickerCave;
+	private WoverBiomePicker pickerLand;
+	private WoverBiomePicker pickerVoid;
+	private WoverBiomePicker pickerCave;
 	private BiomeMap mapLand;
 	private BiomeMap mapVoid;
 	private BiomeMap mapCave;
@@ -54,21 +56,21 @@ public class EdenBiomeSource extends BiomeSource {
 			.collect(Collectors.toList());
 
 		if (pickerLand == null) {
-			pickerLand = new BiomePicker(biomeRegistry);
+			pickerLand = new WoverBiomePicker((ResourceKey<Biome>) biomeRegistry);
 			Iterator<EdenRingBiome> biomeLand = EdenRingBiomesDataProvider.BIOMES_LAND.iterator();
 			while (biomeLand.hasNext()) {
 				pickerLand.addBiome(biomeLand.next());
 			}
 			pickerLand.rebuild();
 			
-			pickerVoid = new BiomePicker(biomeRegistry);
+			pickerVoid = new WoverBiomePicker((ResourceKey<Biome>) biomeRegistry);
 			Iterator<EdenRingBiome> biomeAir = EdenRingBiomesDataProvider.BIOMES_AIR.iterator();
 			while (biomeAir.hasNext()) {
 				pickerVoid.addBiome(biomeAir.next());
 			}
 			pickerVoid.rebuild();
 			
-			pickerCave = new BiomePicker(biomeRegistry);
+			pickerCave = new WoverBiomePicker((ResourceKey<Biome>) biomeRegistry);
 			Iterator<EdenRingBiome> biomeCave = EdenRingBiomesDataProvider.BIOMES_CAVE.iterator();
 			while (biomeCave.hasNext()) {
 				pickerCave.addBiome(biomeCave.next());
@@ -82,7 +84,7 @@ public class EdenBiomeSource extends BiomeSource {
 	}
 	
 	@Override
-	protected Codec<? extends BiomeSource> codec() {
+	protected MapCodec<? extends BiomeSource> codec() {
 		return CODEC;
 	}
 	

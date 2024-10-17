@@ -19,6 +19,7 @@ def local_bclib = findProject(':BCLib') != null
 def local_wover = findProject(':WorldWeaver') != null
 
 loom {
+    accessWidenerPath = file("src/main/resources/edenring.accesswidener")
     interfaceInjection {
         // When enabled injected interfaces from dependecies will be applied.
         enableDependencyInterfaceInjection = true
