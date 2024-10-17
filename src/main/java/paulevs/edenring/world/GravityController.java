@@ -10,7 +10,7 @@ import paulevs.edenring.registries.EdenBlocks;
 public class GravityController {
 	public static double getGravityMultiplier(double y) {
 		double gravity = Mth.lerp(Math.abs(y - 128.0) * 0.007, 1.0, 0.2);
-		return y > 256 ? Math.max(gravity, 0.2) : gravity;
+		return y > 320 ? Math.max(gravity, 0.1) : gravity;
 	}
 	
 	public static double getGraviliteMultiplier(Entity entity) {
