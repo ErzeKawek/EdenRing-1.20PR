@@ -20,7 +20,7 @@ import paulevs.edenring.world.features.trees.*;
 public class EdenFeatures {
 	public static final StonePillar STONE_PILLAR_FEATURE = inlineBuild("stone_pillar", new StonePillar());
 
-	public static final Features<ScatterFeature, NoneFeatureConfiguration> MOSS_LAYER = registerVegetation("moss_layer", inlineBuild("moss_layer", new ScatterFeature(Blocks.MOSS_CARPET)), 4);
+	public static final Features MOSS_LAYER = registerVegetation("moss_layer", inlineBuild("moss_layer", new ScatterFeature(Blocks.MOSS_CARPET)), 4);
 	public static final BCLFeature<ScatterFeature, NoneFeatureConfiguration> EDEN_MOSS_LAYER = registerVegetation("eden_moss_layer", inlineBuild("eden_moss_layer", new ScatterFeature(EdenBlocks.EDEN_MOSS)), 6);
 	
 	public static final BCLFeature<FloorScatterFeature, NoneFeatureConfiguration> MOSS_FLOOR = registerVegetation(

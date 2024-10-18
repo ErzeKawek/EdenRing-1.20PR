@@ -86,9 +86,9 @@ public class LightningRayRenderer extends EntityRenderer<LightningRayEntity> {
 	
 	private void vertex(VertexConsumer vertexConsumer, Matrix4f pose, Matrix3f normal, float x, float y, float z, float u, float v) {
 		vertexConsumer
-			.vertex(pose, x, y, z)
-			.color(255, 255, 255, 255)
-			.uv(u, v)
+				.addVertex(pose, x, y, z)
+				.setColor(255, 255, 255, 255)
+				.setUv(u, v)
 			.overlayCoords(OverlayTexture.NO_OVERLAY)
 			.uv2(COLOR)
 			.normal(normal, 0, 1, 0)

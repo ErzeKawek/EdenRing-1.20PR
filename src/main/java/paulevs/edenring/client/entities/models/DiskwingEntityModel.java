@@ -118,9 +118,13 @@ public class DiskwingEntityModel extends EntityModel<DiskwingEntity> {
 		wingRight.zRot = angle2;
 		wingLeft.zRot = -wingRight.zRot;
 	}
-	
-	@Override
+
 	public void renderToBuffer(PoseStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		model.render(matrices, vertices, light, overlay);
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int i, int j, int k) {
+
 	}
 }

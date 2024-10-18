@@ -20,9 +20,11 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCon
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import org.betterx.wover.core.api.Logger;
 import org.betterx.wover.core.api.ModCore;
+import org.betterx.wover.state.api.WorldConfig;
 import paulevs.edenring.config.Configs;
 import paulevs.edenring.paintings.EdenPaintings;
 import paulevs.edenring.registries.*;
+import paulevs.edenring.tab.EdenCreativeTabs;
 import paulevs.edenring.world.EdenPortal;
 import paulevs.edenring.world.generator.EdenBiomeSource;
 import paulevs.edenring.world.generator.GeneratorOptions;
@@ -38,17 +40,7 @@ public static final ResourceKey<Level> EDEN_RING_KEY = ResourceKey.create(Regist
 	
 @Override
 public void onInitialize() {
-  WorldConfig.registerModCache(MOD_ID); //idk
-  BCLCreativeTabManager.create(MOD_ID)
-      .createTab("eden_tab")
-      .setPredicate(
-          item -> BaseRegistry.getModBlockItems(MOD_ID).contains(item)
-              || BaseRegistry.getModItems(MOD_ID).contains(item)
-      )
-      .setIcon(EdenBlocks.VOLVOX_BLOCK)
-      .build()
-      .processBCLRegistry()
-      .register();
+  WorldConfig.registerMod(C); //idk
 
   GeneratorOptions.init();
   EdenSounds.init();
@@ -59,6 +51,7 @@ public void onInitialize() {
   EdenEntities.init();
   EdenItems.init();
   EdenFeatures.register();
+  EdenCreativeTabs.register();
   // EdenRecipes.register(); Use data generation
   EdenParticles.ensureStaticallyLoadedServerside();
   Configs.saveConfigs();

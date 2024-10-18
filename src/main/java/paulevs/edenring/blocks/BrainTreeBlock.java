@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockPos.MutableBlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Vec3i;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
@@ -51,7 +52,7 @@ import java.util.Optional;
 public class BrainTreeBlock extends BaseBlock implements RenderLayerProvider {
 	public static final BooleanProperty	ACTIVE = BlockProperties.ACTIVE;
 	public static final BooleanProperty	POWERED = BlockStateProperties.POWERED;
-	private static final ArmorMaterial[] PROTECTIVE = new ArmorMaterial[] {
+	private static final Holder<ArmorMaterial>[] PROTECTIVE = new Holder[]{
 		ArmorMaterials.CHAIN,
 		ArmorMaterials.IRON,
 		ArmorMaterials.GOLD,
@@ -174,7 +175,7 @@ public class BrainTreeBlock extends BaseBlock implements RenderLayerProvider {
 					ItemStack stack = iterator.next();
 					if (stack.getItem() instanceof ArmorItem) {
 						ArmorItem item = (ArmorItem) stack.getItem();
-						ArmorMaterial material = item.getMaterial();
+						ArmorMaterial material = item.getMaterial().value();
 						for (ArmorMaterial m: PROTECTIVE) {
 							if (material == m) {
 								resistance += 0.25F;
@@ -190,8 +191,7 @@ public class BrainTreeBlock extends BaseBlock implements RenderLayerProvider {
 			}
 		}
 	}
-	
-	@Override
+
 	@Environment(EnvType.CLIENT)
 	public UnbakedModel getModelVariant(ResourceLocation stateId, BlockState blockState, Map<ResourceLocation, UnbakedModel> modelCache) {
 		Optional<String> pattern = PatternsHelper.createBlockSimple(blockState.getValue(ACTIVE) ? EdenRing.makeID(stateId.getPath() + "_active") : stateId);

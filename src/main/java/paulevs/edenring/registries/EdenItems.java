@@ -4,6 +4,7 @@ import net.minecraft.world.item.Item;
 import org.betterx.bclib.api.v2.ComposterAPI;
 import org.betterx.bclib.items.ModelProviderItem;
 import org.betterx.bclib.registry.ItemRegistry;
+import org.betterx.wover.item.api.ItemRegistry;
 import paulevs.edenring.EdenRing;
 import paulevs.edenring.config.Configs;
 import paulevs.edenring.items.AstralliumItem;
@@ -25,7 +26,7 @@ public class EdenItems {
 	}
 	
 	private static Item register(String name, Item item) {
-		REGISTRY.register(EdenRing.makeID(name), item);
+		REGISTRY.register(EdenRing.C.mk(name), item);
 		return item;
 	}
 

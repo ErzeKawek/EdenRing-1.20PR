@@ -38,7 +38,7 @@ public class EdenBiomeBuilder extends WoverBiomeBuilder.AbstractWoverBiomeBuilde
                 .fogColor(183, 212, 255)
                 .skyColor(113, 178, 255)
                 .grassColor(255, 255, 255)
-                .plantsColor(230, 63, 50)
+                .plantsColor(255, 255, 255)
                 .mood(EdenSounds.AMBIENCE_WIND_VALLEY)
                 .hasPrecipitation(false)
                 .intendedPlacement(biomeTag.length > 0 ? biomeTag[0] : null)

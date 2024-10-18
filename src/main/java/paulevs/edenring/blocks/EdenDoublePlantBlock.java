@@ -6,9 +6,11 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.block.model.BlockModel;
 import net.minecraft.client.resources.model.UnbakedModel;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
@@ -30,7 +32,6 @@ import java.util.Map;
 import java.util.Optional;
 
 public class EdenDoublePlantBlock extends BaseDoublePlantBlock {
-	@Override
 	@Environment(EnvType.CLIENT)
 	public UnbakedModel getModelVariant(ResourceLocation stateId, BlockState blockState, Map<ResourceLocation, UnbakedModel> modelCache) {
 		String modId = stateId.getNamespace();
@@ -41,8 +42,7 @@ public class EdenDoublePlantBlock extends BaseDoublePlantBlock {
 		Optional<String> pattern = PatternsHelper.createJson(BasePatterns.BLOCK_CROSS, textures);
 		return ModelsHelper.fromPattern(pattern);
 	}
-	
-	@Override
+
 	@Environment(EnvType.CLIENT)
 	public BlockModel getItemModel(ResourceLocation itemID) {
 		return  ModelsHelper.createBlockItem(EdenRing.makeID(itemID.getPath() + "_top"));
@@ -58,7 +58,7 @@ public class EdenDoublePlantBlock extends BaseDoublePlantBlock {
 	@SuppressWarnings("unchecked")
 	public List<ItemStack> getDrops(BlockState state, LootParams.Builder builder) {
 		ItemStack tool = builder.getParameter(LootContextParams.TOOL);
-		if (tool != null && BaseShearsItem.isShear(tool) || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.SILK_TOUCH, tool) > 0) {
+		if (tool != null && BaseShearsItem.isShear(tool) || EnchantmentHelper.getItemEnchantmentLevel((Holder<Enchantment>) Enchantments.SILK_TOUCH, tool) > 0) {
 			return Lists.newArrayList(new ItemStack(this));
 		}
 		else {

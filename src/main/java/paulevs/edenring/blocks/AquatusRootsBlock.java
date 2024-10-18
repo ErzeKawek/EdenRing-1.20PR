@@ -71,14 +71,12 @@ public class AquatusRootsBlock extends BaseBlockNotFull implements RenderLayerPr
 		}
 		return state;
 	}
-	
-	@Override
+
 	@Environment(EnvType.CLIENT)
 	public BlockModel getItemModel(ResourceLocation resourceLocation) {
 		return ModelsHelper.createBlockItem(resourceLocation);
 	}
-	
-	@Override
+
 	@Environment(EnvType.CLIENT)
 	public UnbakedModel getModelVariant(ResourceLocation stateId, BlockState blockState, Map<ResourceLocation, UnbakedModel> modelCache) {
 		ResourceLocation texture = blockState.getValue(UP) ? EdenRing.makeID("aquatus_outer_leaves") : stateId;
