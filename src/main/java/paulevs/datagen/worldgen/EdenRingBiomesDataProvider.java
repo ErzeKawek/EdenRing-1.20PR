@@ -4,17 +4,12 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.data.worldgen.BootstrapContext;
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeBuilder;
-import org.betterx.bclib.api.v2.levelgen.biomes.BiomeAPI;
-import org.betterx.bclib.api.v2.levelgen.biomes.BiomeAPI.BiomeType;
-import org.betterx.bclib.api.v3.datagen.TagDataProvider;
-import org.betterx.worlds.together.tag.v3.TagManager;
 
 import com.google.common.collect.Lists;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.worldgen.BootstapContext;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.world.level.biome.Biome;
 import org.betterx.wover.biome.api.builder.BiomeBuilder;
 import org.betterx.wover.tag.api.TagManager;
@@ -37,7 +32,7 @@ import paulevs.edenring.world.biomes.land.PulseForestBiome;
 import paulevs.edenring.world.biomes.land.StoneGardenBiome;
 import paulevs.edenring.world.biomes.land.WindValleyBiome;
 
-public class EdenRingBiomesDataProvider extends BiomeTagProvider<Biome> {
+public class EdenRingBiomesDataProvider extends BiomeTagProvider {
     public static final List<EdenRingBiome> BIOMES_LAND = Lists.newArrayList();
     public static final List<EdenRingBiome> BIOMES_AIR = Lists.newArrayList();
     public static final List<EdenRingBiome> BIOMES_CAVE = Lists.newArrayList();
@@ -70,7 +65,7 @@ public class EdenRingBiomesDataProvider extends BiomeTagProvider<Biome> {
     }
 
     public static void bootstrap(BootstrapContext<Biome> ctx) {
-        EdenBiomeBuilder.;
+        EdenBiomeBuilder.registerUnbound(ctx);
     }
 
     public static void ensureStaticallyLoaded() {
