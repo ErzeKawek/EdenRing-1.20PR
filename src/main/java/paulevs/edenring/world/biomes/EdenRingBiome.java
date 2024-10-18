@@ -172,7 +172,7 @@ public class EdenRingBiome extends WoverBiomeBuilder.WoverBiome implements Surfa
 
 
     public static EdenRingBiome create(Config biomeConfig, BiomeAPI.BiomeType type, WoverBiomeBuilder.WoverBiome parentBiome) {
-        BCLBiomeBuilder builder = BCLBiomeBuilder
+        EdenBiomeBuilder builder = EdenBiomeBuilder
                 .start(biomeConfig.ID)
                 .music(EdenSounds.MUSIC_COMMON)
                 .waterColor(4159204)
@@ -226,7 +226,7 @@ public class EdenRingBiome extends WoverBiomeBuilder.WoverBiome implements Surfa
         return this.surfMatProv.surface();
     }
 
-    public static BlockState findTopMaterial(BCLBiome biome) {
+    public static BlockState findTopMaterial(WoverBiomeBuilder.WoverBiome biome) {
         return BiomeAPI.findTopMaterial(biome).orElse(Config.DEFAULT_MATERIAL.getTopMaterial());
     }
 
@@ -238,7 +238,7 @@ public class EdenRingBiome extends WoverBiomeBuilder.WoverBiome implements Surfa
         return findTopMaterial(BiomeAPI.getBiome(world.getBiome(pos)));
     }
 
-    public static BlockState findUnderMaterial(BCLBiome biome) {
+    public static BlockState findUnderMaterial(WoverBiomeBuilder.WoverBiome biome) {
         return BiomeAPI.findUnderMaterial(biome).orElse(Config.DEFAULT_MATERIAL.getUnderMaterial());
     }
 
@@ -246,7 +246,7 @@ public class EdenRingBiome extends WoverBiomeBuilder.WoverBiome implements Surfa
         return findUnderMaterial(BiomeAPI.getBiome(world.getBiome(pos)));
     }
 
-    public static List<BCLBiome> getAllBeBiomes() {
+    public static List<WoverBiomeBuilder.WoverBiome> getAllBeBiomes() {
         return BiomeAPI.getAllBiomes(EdenBiomes.EDEN);
     }
 }

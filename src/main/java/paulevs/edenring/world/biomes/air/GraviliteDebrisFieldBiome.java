@@ -1,8 +1,8 @@
 package paulevs.edenring.world.biomes.air;
 
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeBuilder;
 import paulevs.edenring.registries.*;
 import paulevs.edenring.world.biomes.BiomesCommonMethods;
+import paulevs.edenring.world.biomes.EdenBiomeBuilder;
 import paulevs.edenring.world.biomes.EdenRingBiome;
 
 public class GraviliteDebrisFieldBiome extends EdenRingBiome.Config {
@@ -11,7 +11,7 @@ public class GraviliteDebrisFieldBiome extends EdenRingBiome.Config {
     }
 
     @Override
-    protected void addCustomBuildData(BCLBiomeBuilder builder) {
+    protected void addCustomBuildData(EdenBiomeBuilder builder) {
         BiomesCommonMethods.addDefaultVoidFeatures(builder);
         builder
                 .spawn(EdenEntities.DISKWING, 10, 1, 2)

@@ -1,9 +1,8 @@
 package paulevs.edenring.world.biomes.air;
 
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeBuilder;
-
 import paulevs.edenring.registries.*;
 import paulevs.edenring.world.biomes.BiomesCommonMethods;
+import paulevs.edenring.world.biomes.EdenBiomeBuilder;
 import paulevs.edenring.world.biomes.EdenRingBiome;
 
 public class SkyColonyBiome extends EdenRingBiome.Config {
@@ -12,7 +11,7 @@ public class SkyColonyBiome extends EdenRingBiome.Config {
     }
 
     @Override
-    protected void addCustomBuildData(BCLBiomeBuilder builder) {
+    protected void addCustomBuildData(EdenBiomeBuilder builder) {
         BiomesCommonMethods.addDefaultVoidFeatures(builder);
         builder
                 .spawn(EdenEntities.DISKWING, 20, 3, 6)

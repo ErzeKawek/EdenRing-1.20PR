@@ -1,11 +1,11 @@
 package paulevs.edenring.world.biomes.cave;
 
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeBuilder;
 import org.betterx.bclib.interfaces.SurfaceMaterialProvider;
 
 import net.minecraft.world.level.block.state.BlockState;
 import paulevs.edenring.registries.EdenBiomes;
 import paulevs.edenring.world.biomes.BiomesCommonMethods;
+import paulevs.edenring.world.biomes.EdenBiomeBuilder;
 import paulevs.edenring.world.biomes.EdenRingBiome;
 
 public class EmptyCaveBiome extends EdenRingBiome.Config {
@@ -14,7 +14,7 @@ public class EmptyCaveBiome extends EdenRingBiome.Config {
     }
 
     @Override
-    protected void addCustomBuildData(BCLBiomeBuilder builder) {
+    protected void addCustomBuildData(EdenBiomeBuilder builder) {
         BiomesCommonMethods.addDefaultLandFeatures(builder);
         builder.plantsColor(0x707c47);
     }

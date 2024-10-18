@@ -17,8 +17,11 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.world.level.biome.Biome;
 import org.betterx.wover.biome.api.builder.BiomeBuilder;
+import org.betterx.wover.tag.api.TagManager;
+import org.betterx.wover.tag.datagen.BiomeTagProvider;
 import paulevs.edenring.EdenRing;
 import paulevs.edenring.registries.EdenBiomes;
+import paulevs.edenring.world.biomes.EdenBiomeBuilder;
 import paulevs.edenring.world.biomes.EdenRingBiome;
 import paulevs.edenring.world.biomes.air.AirOceanBiome;
 import paulevs.edenring.world.biomes.air.GraviliteDebrisFieldBiome;
@@ -34,7 +37,7 @@ import paulevs.edenring.world.biomes.land.PulseForestBiome;
 import paulevs.edenring.world.biomes.land.StoneGardenBiome;
 import paulevs.edenring.world.biomes.land.WindValleyBiome;
 
-public class EdenRingBiomesDataProvider extends TagDataProvider<Biome> {
+public class EdenRingBiomesDataProvider extends BiomeTagProvider<Biome> {
     public static final List<EdenRingBiome> BIOMES_LAND = Lists.newArrayList();
     public static final List<EdenRingBiome> BIOMES_AIR = Lists.newArrayList();
     public static final List<EdenRingBiome> BIOMES_CAVE = Lists.newArrayList();
@@ -67,7 +70,7 @@ public class EdenRingBiomesDataProvider extends TagDataProvider<Biome> {
     }
 
     public static void bootstrap(BootstrapContext<Biome> ctx) {
-        BiomeBuilder.;
+        EdenBiomeBuilder.;
     }
 
     public static void ensureStaticallyLoaded() {

@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import org.betterx.bclib.behaviours.BehaviourBuilders;
 import org.betterx.bclib.blocks.BaseVineBlock;
-import org.betterx.bclib.blocks.BlockProperties.TripleShape;
+import org.betterx.wover.block.api.BlockProperties.TripleShape;
 import org.betterx.bclib.client.models.ModelsHelper;
 import org.betterx.bclib.client.models.PatternsHelper;
 import org.betterx.bclib.interfaces.CustomColorProvider;
@@ -26,10 +26,9 @@ import java.util.Optional;
 
 public class OverlayVineBlock extends BaseVineBlock implements CustomColorProvider {
 	public OverlayVineBlock() {
-		super(BehaviourBuilders.createPlant().sound(SoundType.VINE).noCollission().noOcclusion());
+		super();
 	}
-	
-	@Override
+
 	@Environment(EnvType.CLIENT)
 	public UnbakedModel getModelVariant(ResourceLocation stateId, BlockState blockState, Map<ResourceLocation, UnbakedModel> modelCache) {
 		String modId = stateId.getNamespace();
@@ -43,8 +42,7 @@ public class OverlayVineBlock extends BaseVineBlock implements CustomColorProvid
 		Optional<String> pattern = PatternsHelper.createJson(EdenPatterns.BLOCK_TINTED_CROSS_OVERLAY, textures);
 		return ModelsHelper.fromPattern(pattern);
 	}
-	
-	@Override
+
 	@Environment(EnvType.CLIENT)
 	public BlockModel getItemModel(ResourceLocation itemID) {
 		String modId = itemID.getNamespace();

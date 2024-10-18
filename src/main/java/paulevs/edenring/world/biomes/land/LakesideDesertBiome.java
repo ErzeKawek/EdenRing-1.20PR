@@ -12,6 +12,7 @@ import paulevs.edenring.registries.EdenBiomes;
 import paulevs.edenring.registries.EdenFeatures;
 import paulevs.edenring.registries.EdenSounds;
 import paulevs.edenring.world.biomes.BiomesCommonMethods;
+import paulevs.edenring.world.biomes.EdenBiomeBuilder;
 import paulevs.edenring.world.biomes.EdenRingBiome;
 
 public class LakesideDesertBiome extends EdenRingBiome.Config {
@@ -23,14 +24,14 @@ public class LakesideDesertBiome extends EdenRingBiome.Config {
     }
 
     @Override
-    protected void addCustomBuildData(BCLBiomeBuilder builder) {
+    protected void addCustomBuildData(EdenBiomeBuilder builder) {
         BiomesCommonMethods.addDefaultLandFeatures(builder);
         builder
                 .fogDensity(1F)
                 .skyColor(113, 178, 255)
                 .fogColor(237, 235, 203)
                 .grassColor(246, 222, 173)
-                .foliageColor(247, 165, 115)
+                .plantsColor(247, 165, 115)
                 .music(EdenSounds.MUSIC_COMMON)
                 .loop(EdenSounds.AMBIENCE_LAKESIDE_DESSERT)
                 .feature(GenerationStep.Decoration.VEGETAL_DECORATION, VegetationPlacements.PATCH_GRASS_FOREST)

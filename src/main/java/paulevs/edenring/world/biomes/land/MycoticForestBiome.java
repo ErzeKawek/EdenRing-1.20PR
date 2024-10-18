@@ -10,6 +10,7 @@ import paulevs.edenring.registries.EdenBiomes;
 import paulevs.edenring.registries.EdenFeatures;
 import paulevs.edenring.registries.EdenSounds;
 import paulevs.edenring.world.biomes.BiomesCommonMethods;
+import paulevs.edenring.world.biomes.EdenBiomeBuilder;
 import paulevs.edenring.world.biomes.EdenRingBiome;
 
 public class MycoticForestBiome extends EdenRingBiome.Config {
@@ -18,12 +19,12 @@ public class MycoticForestBiome extends EdenRingBiome.Config {
     }
 
     @Override
-    protected void addCustomBuildData(BCLBiomeBuilder builder) {
+    protected void addCustomBuildData(EdenBiomeBuilder builder) {
         BiomesCommonMethods.addDefaultLandFeatures(builder);
         builder
                 .fogDensity(1F)
                 .grassColor(220, 130, 189)
-                .foliageColor(152, 90, 131)
+                .plantsColor(152, 90, 131)
                 .skyColor(113, 178, 255)
                 .fogColor(178, 112, 143)
                 .loop(EdenSounds.AMBIENCE_MYCOTIC_FOREST)

@@ -2,11 +2,10 @@ package paulevs.datagen;
 
 import java.util.List;
 
-import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeRegistry;
-import org.betterx.bclib.api.v2.levelgen.biomes.BiomeData;
 import org.betterx.bclib.api.v3.datagen.RegistrySupplier;
-import org.betterx.worlds.together.surfaceRules.AssignedSurfaceRule;
-import org.betterx.worlds.together.surfaceRules.SurfaceRuleRegistry;
+import org.betterx.wover.generator.api.biomesource.WoverBiomeData;
+import org.betterx.wover.surface.api.AssignedSurfaceRule;
+import org.betterx.wover.surface.api.SurfaceRuleRegistry;
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.core.registries.Registries;
@@ -29,7 +28,7 @@ public class EdenRingRegistrySupplier extends RegistrySupplier {
         return List.of(
                 new RegistryInfo<>(
                         BCLBiomeRegistry.BCL_BIOMES_REGISTRY,
-                        BiomeData.CODEC
+                        WoverBiomeData.CODEC
                 ),
                 new RegistryInfo<>(
                         SurfaceRuleRegistry.SURFACE_RULES_REGISTRY,

@@ -8,6 +8,7 @@ import paulevs.edenring.registries.EdenBiomes;
 import paulevs.edenring.registries.EdenFeatures;
 import paulevs.edenring.registries.EdenSounds;
 import paulevs.edenring.world.biomes.BiomesCommonMethods;
+import paulevs.edenring.world.biomes.EdenBiomeBuilder;
 import paulevs.edenring.world.biomes.EdenRingBiome;
 
 public class PulseForestBiome extends EdenRingBiome.Config {
@@ -16,7 +17,7 @@ public class PulseForestBiome extends EdenRingBiome.Config {
     }
 
     @Override
-    protected void addCustomBuildData(BCLBiomeBuilder builder) {
+    protected void addCustomBuildData(EdenBiomeBuilder builder) {
         BiomesCommonMethods.addDefaultLandFeatures(builder);
         builder
                 .skyColor(113, 178, 255)

@@ -8,7 +8,7 @@ import net.minecraft.client.resources.model.UnbakedModel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.state.BlockState;
 import org.betterx.bclib.blocks.BaseVineBlock;
-import org.betterx.bclib.blocks.BlockProperties.TripleShape;
+import org.betterx.wover.block.api.BlockProperties.TripleShape;
 import org.betterx.bclib.client.models.BasePatterns;
 import org.betterx.bclib.client.models.ModelsHelper;
 import org.betterx.bclib.client.models.PatternsHelper;
@@ -26,8 +26,7 @@ public class SimpleVineBlock extends BaseVineBlock {
 	public SimpleVineBlock(boolean tripple) {
 		this.tripple = tripple;
 	}
-	
-	@Override
+
 	@Environment(EnvType.CLIENT)
 	public UnbakedModel getModelVariant(ResourceLocation stateId, BlockState blockState, Map<ResourceLocation, UnbakedModel> modelCache) {
 		String modId = stateId.getNamespace();
@@ -44,8 +43,7 @@ public class SimpleVineBlock extends BaseVineBlock {
 		Optional<String> pattern = PatternsHelper.createJson(BasePatterns.BLOCK_CROSS, textures);
 		return ModelsHelper.fromPattern(pattern);
 	}
-	
-	@Override
+
 	@Environment(EnvType.CLIENT)
 	public BlockModel getItemModel(ResourceLocation itemID) {
 		String modId = itemID.getNamespace();
