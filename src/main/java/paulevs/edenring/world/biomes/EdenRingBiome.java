@@ -3,6 +3,7 @@ package paulevs.edenring.world.biomes;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.KeyDispatchDataCodec;
@@ -17,7 +18,9 @@ import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeSettings;
 import org.betterx.bclib.api.v2.levelgen.biomes.BiomeAPI;
 import org.betterx.bclib.api.v2.levelgen.surface.SurfaceRuleBuilder;
 import org.betterx.bclib.interfaces.SurfaceMaterialProvider;
+import org.betterx.wover.biome.api.data.BiomeData;
 import org.betterx.wover.generator.api.biomesource.WoverBiomeBuilder;
+import org.betterx.wover.generator.api.biomesource.WoverBiomeData;
 import org.betterx.wover.surface.api.SurfaceRuleBuilder;
 import org.jetbrains.annotations.NotNull;
 import paulevs.edenring.EdenRing;
@@ -72,6 +75,9 @@ public class EdenRingBiome extends WoverBiomeBuilder.WoverBiome implements Surfa
                 intendedType
         );
         this.surfMatProv = surface;
+    }
+
+    public void datagenSetup(BootstrapContext<BiomeData> dataContext) {
     }
 
     public static class DefaultSurfaceMaterialProvider implements SurfaceMaterialProvider {
@@ -141,9 +147,9 @@ public class EdenRingBiome extends WoverBiomeBuilder.WoverBiome implements Surfa
             this.ID = ID;
         }
 
-        protected abstract void addCustomBuildData(BCLBiomeBuilder builder);
+        protected abstract void addCustomBuildData(EdenBiomeBuilder builder);
 
-        public BCLBiomeBuilder.BiomeSupplier<EdenRingBiome> getSupplier() {
+        public EdenBiomeBuilder.BiomeSupplier<EdenRingBiome> getSupplier() {
             return EdenRingBiome::new;
         }
 
@@ -152,7 +158,7 @@ public class EdenRingBiome extends WoverBiomeBuilder.WoverBiome implements Surfa
         }
     }
 
-    public EdenRingBiome(ResourceKey<Biome> biomeID, BCLBiomeSettings settings) {
+    public EdenRingBiome(ResourceKey<Biome> biomeID, WoverBiomeData settings) {
         super(biomeID, settings);
     }
 

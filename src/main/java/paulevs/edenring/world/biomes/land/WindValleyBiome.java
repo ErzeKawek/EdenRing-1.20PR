@@ -9,6 +9,7 @@ import paulevs.edenring.registries.EdenFeatures;
 import paulevs.edenring.registries.EdenParticles;
 import paulevs.edenring.registries.EdenSounds;
 import paulevs.edenring.world.biomes.BiomesCommonMethods;
+import paulevs.edenring.world.biomes.EdenBiomeBuilder;
 import paulevs.edenring.world.biomes.EdenRingBiome;
 
 public class WindValleyBiome extends EdenRingBiome.Config {
@@ -17,14 +18,14 @@ public class WindValleyBiome extends EdenRingBiome.Config {
     }
 
     @Override
-    protected void addCustomBuildData(BCLBiomeBuilder builder) {
+    protected void addCustomBuildData(EdenBiomeBuilder builder) {
         BiomesCommonMethods.addDefaultLandFeatures(builder);
         builder
                 .fogDensity(1F)
                 .skyColor(113, 178, 255)
                 .fogColor(183, 212, 255)
                 .grassColor(225, 84, 72)
-                .foliageColor(230, 63, 50)
+                .plantsColor(230, 63, 50)
                 .loop(EdenSounds.AMBIENCE_WIND_VALLEY)
                 .music(EdenSounds.MUSIC_COMMON)
                 .particles(EdenParticles.WIND_PARTICLE, 0.001F)
