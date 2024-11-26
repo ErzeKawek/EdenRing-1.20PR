@@ -27,7 +27,12 @@ public class LightningRayEntity extends Entity {
 		super(entityType, level);
 		this.age = MAX_AGE;
 	}
-	
+
+	@Override
+	protected void defineSynchedData(SynchedEntityData.Builder builder) {
+
+	}
+
 	public void setEnd(Vec3 end) {
 		direction = end.subtract(position());
 		entityData.set(DATA_DIR_X_ID, (float) direction.x);

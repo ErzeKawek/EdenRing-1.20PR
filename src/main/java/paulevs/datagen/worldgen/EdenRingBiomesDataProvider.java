@@ -1,6 +1,8 @@
 package paulevs.datagen.worldgen;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -10,13 +12,19 @@ import com.google.common.collect.Lists;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
+import org.betterx.wover.biome.api.builder.BiomeBootstrapContext;
 import org.betterx.wover.biome.api.builder.BiomeBuilder;
+import org.betterx.wover.feature.api.configured.ConfiguredFeatureKey;
+import org.betterx.wover.feature.api.placed.PlacedConfiguredFeatureKey;
 import org.betterx.wover.tag.api.TagManager;
 import org.betterx.wover.tag.datagen.BiomeTagProvider;
 import paulevs.edenring.EdenRing;
 import paulevs.edenring.registries.EdenBiomes;
+
 import paulevs.edenring.world.biomes.EdenBiomeBuilder;
+import paulevs.edenring.world.biomes.EdenBiomeKey;
 import paulevs.edenring.world.biomes.EdenRingBiome;
 import paulevs.edenring.world.biomes.air.AirOceanBiome;
 import paulevs.edenring.world.biomes.air.GraviliteDebrisFieldBiome;
@@ -33,6 +41,13 @@ import paulevs.edenring.world.biomes.land.StoneGardenBiome;
 import paulevs.edenring.world.biomes.land.WindValleyBiome;
 
 public class EdenRingBiomesDataProvider extends BiomeTagProvider {
+    public record BiomeInfo(EdenRingBiome.Config config, TagKey<Biome> tag,
+                            ConfiguredFeatureKey configuredFeatureKey,
+                            PlacedConfiguredFeatureKey placed) {
+    }
+
+    public static final Map<EdenBiomeKey<?, ?>, BiomeInfo> BIOMES = new HashMap<>();
+
     public static final List<EdenRingBiome> BIOMES_LAND = Lists.newArrayList();
     public static final List<EdenRingBiome> BIOMES_AIR = Lists.newArrayList();
     public static final List<EdenRingBiome> BIOMES_CAVE = Lists.newArrayList();
@@ -64,8 +79,13 @@ public class EdenRingBiomesDataProvider extends BiomeTagProvider {
         super(TagManager.BIOMES, List.of(EdenRing.MOD_ID), output, registriesFuture);
     }
 
-    public static void bootstrap(BootstrapContext<Biome> ctx) {
-        EdenBiomeBuilder.registerUnbound(ctx);
+    protected void bootstrap(BiomeBootstrapContext context) {
+        for (Map.Entry<EdenBiomeKey<?, ?>, BiomeInfo> e : BIOMES.entrySet()) {
+            final EdenBiomeBuilder builder = e.getKey().bootstrap(context, e.getValue().config, e.getValue().tag);
+            if (e.getValue().placed != null)
+                builder.feature(e.getValue().placed);
+            builder.register();
+        }
     }
 
     public static void ensureStaticallyLoaded() {
