@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
+import org.betterx.wover.datagen.api.PackBuilder;
 import paulevs.datagen.recipes.EdenRingBlockLootTableProvider;
 import paulevs.datagen.recipes.EdenRingRecipeDataProvider;
 import paulevs.datagen.worldgen.EdenRingBiomesDataProvider;
@@ -27,7 +28,7 @@ public class EdenRingDatagen implements DataGeneratorEntrypoint {
 
     }
 
-    @Override
+                                         @Override
     public void buildRegistry(RegistrySetBuilder registryBuilder) {
         EdenRingBiomesDataProvider.ensureStaticallyLoaded();
         EdenRingRegistrySupplier.INSTANCE.bootstrapRegistries(registryBuilder);

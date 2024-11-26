@@ -21,22 +21,22 @@ import org.betterx.bclib.blocks.BaseLeavesBlock;
 import org.betterx.bclib.blocks.BaseVineBlock;
 import org.betterx.bclib.blocks.FeatureSaplingBlock;
 import org.betterx.bclib.complexmaterials.ComplexMaterial;
-import org.betterx.bclib.config.PathConfig;
-import org.betterx.bclib.registry.BlockRegistry;
-import org.betterx.worlds.together.tag.v3.CommonBlockTags;
-import org.betterx.worlds.together.tag.v3.CommonItemTags;
-import org.betterx.worlds.together.tag.v3.MineableTags;
-import org.betterx.worlds.together.tag.v3.TagManager;
+import org.betterx.wover.block.api.BlockRegistry;
+import org.betterx.wover.tag.api.TagManager;
+import org.betterx.wover.tag.api.predefined.CommonBlockTags;
+import org.betterx.wover.tag.api.predefined.CommonItemTags;
+import org.betterx.wover.tag.api.predefined.MineableTags;
 import org.jetbrains.annotations.NotNull;
 import paulevs.edenring.EdenRing;
 import paulevs.edenring.blocks.*;
 import paulevs.edenring.blocks.complex.BrainTreeComplexMaterial;
 import paulevs.edenring.blocks.complex.EdenWoodenComplexMaterial;
 
+import java.util.List;
 import java.util.Map;
 
 public class EdenBlocks {
-	public static final BlockRegistry REGISTRY = new BlockRegistry(new PathConfig(EdenRing.MOD_ID, "blocks"));
+	private static BlockRegistry BLOCKS_REGISTRY;
 	
 	public static final Block EDEN_GRASS_BLOCK = register(
 			"eden_grass",
@@ -49,22 +49,23 @@ public class EdenBlocks {
 	);
 	public static final Block MOSSY_STONE = register("mossy_stone", new MossyStoneBlock());
 
-	public static final Block AURITIS_SAPLING = register(
+	public static final Block AURITIS_SAPLING = registerBlock(
 			"auritis_sapling",
-			new FeatureSaplingBlock<>((state) -> EdenFeatures.AURITIS_TREE.configuredFeature)
+			new AuritisSaplingBlock()
 	);
+
 	public static final Block AURITIS_LEAVES = register(
 			"auritis_leaves",
 			new AuritisLeavesBlock()
 	);
 
-	public static final ComplexMaterial AURITIS_MATERIAL = new EdenWoodenComplexMaterial(EdenRing.MOD_ID, "auritis", "eden", MapColor.COLOR_BROWN, MapColor.GOLD).init(REGISTRY, EdenItems.REGISTRY);
+	public static final ComplexMaterial AURITIS_MATERIAL = new EdenWoodenComplexMaterial(EdenRing.MOD_ID, "auritis", "eden", MapColor.COLOR_BROWN, MapColor.GOLD).init(BLOCKS_REGISTRY, EdenItems.REGISTRY);
 	
 	public static final Block BALLOON_MUSHROOM_SMALL = register("balloon_mushroom_small", new BalloonMushroomSmallBlock());
 	public static final Block BALLOON_MUSHROOM_BLOCK = register("balloon_mushroom_block", new BalloonMushroomBlock());
 	public static final Block BALLOON_MUSHROOM_STEM = register("balloon_mushroom_stem", new BalloonMushroomStemBlock());
 	public static final Block BALLOON_MUSHROOM_BRANCH = register("balloon_mushroom_branch", new BranchBlock(BALLOON_MUSHROOM_STEM));
-	public static final ComplexMaterial BALLOON_MUSHROOM_MATERIAL = new EdenWoodenComplexMaterial(EdenRing.MOD_ID, "balloon_mushroom", "eden", MapColor.COLOR_PURPLE, MapColor.COLOR_PURPLE).init(REGISTRY, EdenItems.REGISTRY);
+	public static final ComplexMaterial BALLOON_MUSHROOM_MATERIAL = new EdenWoodenComplexMaterial(EdenRing.MOD_ID, "balloon_mushroom", "eden", MapColor.COLOR_PURPLE, MapColor.COLOR_PURPLE).init(BLOCKS_REGISTRY, EdenItems.REGISTRY);
 	public static final Block BALLOON_MUSHROOM_HYMENOPHORE = register("balloon_mushroom_hymenophore", new ShadedVineBlock());
 	public static final Map<DyeColor, Block> MYCOTIC_LANTERN_COLORED = Maps.newEnumMap(DyeColor.class);
 	public static final Map<DyeColor, Block> BALLOON_MUSHROOM_SPOROCARP_COLORED = Maps.newEnumMap(DyeColor.class);
@@ -88,12 +89,12 @@ public class EdenBlocks {
 	// Pulse Tree //
 	public static final Block PULSE_TREE_SAPLING = register("pulse_tree_sapling", new FeatureSaplingBlock<>((state) -> EdenFeatures.PULSE_TREE.configuredFeature));
 	public static final Block PULSE_TREE = register("pulse_tree", new PulseTreeBlock());
-	public static final ComplexMaterial PULSE_TREE_MATERIAL = new EdenWoodenComplexMaterial(EdenRing.MOD_ID, "pulse_tree", "eden", MapColor.COLOR_CYAN, MapColor.COLOR_CYAN).init(REGISTRY, EdenItems.REGISTRY);
+	public static final ComplexMaterial PULSE_TREE_MATERIAL = new EdenWoodenComplexMaterial(EdenRing.MOD_ID, "pulse_tree", "eden", MapColor.COLOR_CYAN, MapColor.COLOR_CYAN).init(BLOCKS_REGISTRY, EdenItems.REGISTRY);
 	// Brain Tree //
 	public static final Block BRAIN_TREE_BLOCK_IRON = register("brain_tree_block_iron", new BrainTreeBlock(MapColor.COLOR_LIGHT_GRAY));
 	public static final Block BRAIN_TREE_BLOCK_COPPER = register("brain_tree_block_copper", new BrainTreeBlock(MapColor.COLOR_ORANGE));
 	public static final Block BRAIN_TREE_BLOCK_GOLD = register("brain_tree_block_gold", new BrainTreeBlock(MapColor.GOLD));
-	public static final ComplexMaterial BRAIN_TREE_MATERIAL = new BrainTreeComplexMaterial("brain_tree").init(REGISTRY, EdenItems.REGISTRY);
+	public static final ComplexMaterial BRAIN_TREE_MATERIAL = new BrainTreeComplexMaterial("brain_tree").init(BLOCKS_REGISTRY, EdenItems.REGISTRY);
 	public static final Block COPPER_FRAMED_BRAIN_TREE_LOG = register("copper_framed_brain_tree_log", new BrainTreeLogBlock());
 	public static final Block IRON_FRAMED_BRAIN_TREE_LOG = register("iron_framed_brain_tree_log", new BrainTreeLogBlock());
 	public static final Block GOLD_FRAMED_BRAIN_TREE_LOG = register("gold_framed_brain_tree_log", new BrainTreeLogBlock());
@@ -150,8 +151,9 @@ public class EdenBlocks {
 	//public static final Block SOAKED_METAL_SPONGE = register("metal_sponge_soaked", new SoakedMetalSpongeBlock());
 
 
+
 	public static void init() {
-		BlockRegistry.getModBlocks(EdenRing.MOD_ID).forEach(block -> {
+		EdenBlocks.getModBlocks(EdenRing.MOD_ID).forEach(block -> {
 			if (block instanceof BaseLeavesBlock) {
 				TagManager.BLOCKS.add(MineableTags.HOE, block);
 				TagManager.BLOCKS.add(CommonBlockTags.LEAVES, block);
@@ -174,27 +176,26 @@ public class EdenBlocks {
 			}
 		});
 	}
+
+	public static List<Block> getModBlocks() {
+		return getBlockRegistry().allBlocks().toList();
+	}
 	
 	private static Block register(String name, Block block) {
-		return REGISTRY.register(EdenRing.makeID(name), block);
+		return BLOCKS_REGISTRY.register(EdenRing.C.mk(name), block);
 	}
 
-	public static Block registerBlock(ResourceLocation id, Block block, TagKey<Block>... tags) {
-//		Sometimes maybe
-//		if (!Configs.BLOCK_CONFIG.getBooleanRoot(id.getPath(), true)) {
-//			return block;
-//		}
-		getBlockRegistry().register(id, block);
-		TagManager.BLOCKS.add(block, tags);
-		return block;
+	@SafeVarargs
+	public static <T extends Block> T registerBlock(String name, T block, TagKey<Block>... tags) {
+		return getBlockRegistry().register(name, block, tags);
 	}
 
 	private static Block register(String name, Block block,  TagKey<Block>... tags) {
-		return registerBlock(EdenRing.makeID(name), block, tags);
+		return registerBlock(EdenRing.C.mk(name), block, tags);
 	}
 	
 	private static Block registerBlockOnly(String name, Block block) {
-		return REGISTRY.registerBlockOnly(EdenRing.makeID(name), block);
+		return BLOCKS_REGISTRY.registerBlockOnly(EdenRing.C.mk(name), block);
 	}
 	
 	public static boolean never(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos) {
@@ -203,6 +204,6 @@ public class EdenBlocks {
 
 	@NotNull
 	public static BlockRegistry getBlockRegistry() {
-		return REGISTRY;
+		return BLOCKS_REGISTRY;
 	}
 }

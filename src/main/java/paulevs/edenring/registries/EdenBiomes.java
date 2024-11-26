@@ -6,6 +6,7 @@ import net.minecraft.world.level.biome.Biome;
 
 import org.betterx.bclib.api.v2.levelgen.biomes.BCLBiomeRegistry;
 import org.betterx.bclib.api.v2.levelgen.biomes.BiomeAPI;
+import org.betterx.wover.biome.api.data.BiomeCodecRegistry;
 import paulevs.edenring.EdenRing;
 import paulevs.edenring.world.biomes.EdenRingBiome;
 
@@ -43,6 +44,6 @@ public class EdenBiomes {
     }
 
     public static void register() {
-        BCLBiomeRegistry.registerBiomeCodec(EdenRing.makeID("biome"), EdenRingBiome.KEY_CODEC);
+        BiomeCodecRegistry.register(EdenRing.C.mk("biome"), EdenRingBiome.KEY_CODEC);
     }
 }
